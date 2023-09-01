@@ -2,6 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .date-label {
+    @apply mb-0 text-small-label whitespace-nowrap;
+  }
+
+  .date-counter {
+    @apply mt-[0.7rem] mb-0 text-[9rem] pb-0 leading-tight;
+  }
+
+  .counter-label {
+    @apply mt-0 font-medium text-small-label;
+  }
+}
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
