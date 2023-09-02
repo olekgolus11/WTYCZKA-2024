@@ -18,6 +18,11 @@ const config: Config = {
       "small-label": "2rem",
       "bigger-label": "2.5rem",
     },
+    colors: {
+      "primary-color": "#EE00AB",
+      "secondary-color": "#ff4dcc",
+      "active-color": "#b30080",
+    },
   },
   plugins: [],
 };

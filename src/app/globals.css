@@ -8,11 +8,31 @@
   }
 
   .date-counter {
-    @apply mt-[0.7rem] mb-0 text-[9rem] pb-0 leading-tight;
+    @apply mt-[0.7rem] mb-0 text-[9rem] pb-0 leading-tight tracking-wider;
   }
 
   .counter-label {
     @apply mt-0 font-medium text-small-label;
+  }
+
+  .applyBasicButtonStyles {
+    @apply p-0 border-none bg-opacity-0 cursor-pointer font-bold whitespace-nowrap;
+  }
+
+  .button-square {
+    @apply rounded-lg py-4 px-6 applyBasicButtonStyles duration-200;
+  }
+
+  .button-round {
+    @apply rounded-[3rem] py-4 px-9 applyBasicButtonStyles duration-200;
+  }
+
+  .button-filled {
+    @apply bg-primary-color border-solid border-[0.1rem] border-primary-color duration-200 hover:bg-secondary-color hover:border-secondary-color active:bg-active-color active:border-active-color active:duration-[10];
+  }
+
+  .button-outlined {
+    @apply bg-opacity-100 border-solid border-[0.1rem] border-primary-color duration-200 hover:bg-primary-color active:bg-active-color active:border-active-color active:duration-[10];
   }
 }
 
