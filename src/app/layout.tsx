@@ -20,7 +20,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={montserrat.className}>{children}</body>
+      <body className={`${montserrat.className} h-screen p-0 m-0 box-border`}>
+        {children}
+      </body>
     </html>
   );
 }

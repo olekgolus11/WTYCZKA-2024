@@ -6,7 +6,7 @@ const Clock = () => {
   const ONE_MINUTE = 60000;
   const ONE_HOUR = 3600000;
   const ONE_DAY = 86400000;
-  const WTYCZKA_EVENT_DATE = "2023-08-10";
+  const WTYCZKA_EVENT_DATE = "2023-10-26";
   const eventDate = new Date(WTYCZKA_EVENT_DATE);
 
   const countDaysLeft = () => {
@@ -30,8 +30,8 @@ const Clock = () => {
         <>
           <p className="date-label">
             {languageMode == "polish"
-              ? "20 PAŹDZIERNIKA 2023"
-              : "31 OCTOBER 2023"}
+              ? "26 PAŹDZIERNIKA 2023"
+              : "26 OCTOBER 2023"}
           </p>
           <h1 className="date-counter">{daysLeft}</h1>
           <p className="counter-label">
