@@ -13,15 +13,15 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
-    },
-    fontSize: {
-      "small-label": "2rem",
-      "bigger-label": "2.5rem",
-    },
-    colors: {
-      "primary-color": "#EE00AB",
-      "secondary-color": "#ff4dcc",
-      "active-color": "#b30080",
+      fontSize: {
+        "small-label": "2rem",
+        "bigger-label": "2.5rem",
+      },
+      colors: {
+        "primary-color": "#EE00AB",
+        "secondary-color": "#ff4dcc",
+        "active-color": "#b30080",
+      },
     },
   },
   plugins: [],
