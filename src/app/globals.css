@@ -89,4 +89,11 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+  height: calc(100svh - var(--nav-height));
+}
+
+html {
+  --nav-height: 80px;
+  scroll-padding-top: var(--nav-height);
+  scroll-behavior: smooth;
 }

@@ -22,6 +22,20 @@ const config: Config = {
         "secondary-color": "#ff4dcc",
         "active-color": "#b30080",
       },
+      stroke: {
+        "primary-color": "#EE00AB",
+        "secondary-color": "#ff4dcc",
+        "active-color": "#b30080",
+      },
+      keyframes: {
+        "spring-right": {
+          from: { transform: "translateX(0px)" },
+          to: { transform: "translateX(6px)" },
+        },
+      },
+      animation: {
+        "spring-right": "spring-right 0.5s ease-in-out infinite alternate",
+      },
     },
   },
   plugins: [],
