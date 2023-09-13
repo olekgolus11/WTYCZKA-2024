@@ -1,6 +1,6 @@
 "use client";
-import { useState, useContext } from "react";
-import { LanguageModeContext } from "../../contexts/LanguageContext";
+import { useState } from "react";
+import { useLanguageModeContext } from "../../contexts/LanguageModeContext";
 
 const Clock = () => {
   const ONE_MINUTE = 60000;
@@ -18,7 +18,7 @@ const Clock = () => {
   };
 
   const [daysLeft, setDaysLeft] = useState(countDaysLeft());
-  const { languageMode } = useContext(LanguageModeContext);
+  const { languageMode } = useLanguageModeContext();
 
   setInterval(() => {
     setDaysLeft(countDaysLeft());

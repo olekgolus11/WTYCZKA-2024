@@ -4,7 +4,7 @@
 
 @layer components {
   .date-label {
-    @apply mb-0 text-small-label whitespace-nowrap;
+    @apply mb-0 text-small-label;
   }
 
   .date-counter {
@@ -28,11 +28,11 @@
   }
 
   .button-filled {
-    @apply bg-primary-color border-solid border-[0.1rem] border-primary-color duration-200 hover:bg-secondary-color hover:border-secondary-color active:bg-active-color active:border-active-color active:duration-[10];
+    @apply bg-primary-color border-solid border-[0.15rem] border-primary-color duration-200 hover:bg-secondary-color hover:border-secondary-color active:bg-active-color active:border-active-color active:duration-[10];
   }
 
   .button-outlined {
-    @apply bg-opacity-100 border-solid border-[0.1rem] border-primary-color duration-200 hover:bg-primary-color active:bg-active-color active:border-active-color active:duration-[10];
+    @apply bg-opacity-100 border-solid border-[0.15rem] border-primary-color duration-200 hover:bg-primary-color active:bg-active-color active:border-active-color active:duration-[10];
   }
 }
 
@@ -93,7 +93,7 @@ body {
 }
 
 html {
-  --nav-height: 80px;
+  --nav-height: 82px;
   scroll-padding-top: var(--nav-height);
   scroll-behavior: smooth;
 }

@@ -1,11 +1,10 @@
 import PL_IMG from "../../../public/languageIcons/poland.png";
 import EN_IMG from "../../../public/languageIcons/united-kingdom.png";
-import { useContext } from "react";
-import { LanguageModeContext } from "../../contexts/LanguageContext";
+import { useLanguageModeContext } from "../../contexts/LanguageModeContext";
 import Image from "next/image";
 
 const LanguageSwitch = ({ className }: { className?: string }) => {
-  const { languageMode, setLanguageMode } = useContext(LanguageModeContext);
+  const { languageMode, setLanguageMode } = useLanguageModeContext();
 
   const toggleLanguageMode = () => {
     setLanguageMode((prevLanguage) =>

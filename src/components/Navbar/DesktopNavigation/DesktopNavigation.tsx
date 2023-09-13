@@ -4,12 +4,11 @@ import { m } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Controls from "../Controls/Controls";
 import { navLinksPL, navLinksEN } from "../NavLinks";
-import { LanguageModeContext } from "@/contexts/LanguageContext";
-import { useContext } from "react";
+import { useLanguageModeContext } from "@/contexts/LanguageModeContext";
 import Link from "next/link";
 
 const DesktopNavigation = ({ pathname }: { pathname: string }) => {
-  const { languageMode } = useContext(LanguageModeContext);
+  const { languageMode } = useLanguageModeContext();
 
   return (
     <>

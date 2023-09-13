@@ -19,30 +19,14 @@ const Navbar = () => {
   const screenWidth = useScreenWidth();
   const pathname = usePathname();
 
-  const handleNavbarColorChange = () => {
-    const windowPosition = window.scrollY;
-    const maxWindowPosition = 200;
-    windowPosition <= maxWindowPosition
-      ? setNavbarTransparency(windowPosition / maxWindowPosition)
-      : setNavbarTransparency(1);
-  };
-
   useEffect(() => {
     setNavbarHeight();
-    window.addEventListener("resize", setNavbarHeight);
-    window.addEventListener("scroll", handleNavbarColorChange);
-
-    return () => {
-      window.removeEventListener("resize", setNavbarHeight);
-      window.removeEventListener("scroll", handleNavbarColorChange);
-    };
-  }, []);
+  }, [screenWidth]);
 
   return (
     <nav
-      className="sticky top-0 w-full z-10 py-4"
+      className="sticky top-0 w-full z-10 py-4 bg-black"
       id="navbar"
-      style={{ backgroundColor: `rgba(0, 0, 0, ${navbarTransparency})` }}
     >
       <section className="flex items-center justify-around">
         <div>
