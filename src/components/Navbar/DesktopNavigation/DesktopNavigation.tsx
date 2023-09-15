@@ -1,5 +1,5 @@
 import { createAnimateOnScroll } from "../../../animations/animateOnScroll";
-import { FORM_LINK } from "@/services/FormLink";
+import { FORM_LINK } from "@/services/formLink";
 import { m } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Controls from "../Controls/Controls";
@@ -9,7 +9,6 @@ import Link from "next/link";
 
 const DesktopNavigation = ({ pathname }: { pathname: string }) => {
   const { languageMode } = useLanguageModeContext();
-
   return (
     <>
       <div className="flex gap-6 text-base">

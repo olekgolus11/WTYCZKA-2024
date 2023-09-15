@@ -5,13 +5,11 @@ import Image from "next/image";
 
 const LanguageSwitch = ({ className }: { className?: string }) => {
   const { languageMode, setLanguageMode } = useLanguageModeContext();
-
   const toggleLanguageMode = () => {
     setLanguageMode((prevLanguage) =>
       prevLanguage === "polish" ? "english" : "polish"
     );
   };
-
   return (
     <div
       className={`${className} cursor-pointer flex`}

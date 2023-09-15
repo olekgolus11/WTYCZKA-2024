@@ -1,6 +1,6 @@
 "use client";
 import { MAIN_PAGE } from "./NavLinks";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import Link from "next/link";
 import { m } from "framer-motion";
 import {
@@ -14,8 +14,7 @@ import MobileNavigation from "./MobileNavigation/MobileNavigation";
 import { usePathname } from "next/navigation";
 
 const Navbar = () => {
-  const [navbarTransparency, setNavbarTransparency] = useState(0);
-  const mobileNavbarThreshold = 1000;
+  const mobileNavbarThreshold = 1280;
   const screenWidth = useScreenWidth();
   const pathname = usePathname();
 
@@ -24,10 +23,7 @@ const Navbar = () => {
   }, [screenWidth]);
 
   return (
-    <nav
-      className="sticky top-0 w-full z-10 py-4 bg-black"
-      id="navbar"
-    >
+    <nav className="sticky top-0 w-full z-10 py-4 bg-black" id="navbar">
       <section className="flex items-center justify-around">
         <div>
           <Link href={MAIN_PAGE}>

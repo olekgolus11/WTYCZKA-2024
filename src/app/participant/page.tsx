@@ -3,6 +3,10 @@ import { useState } from "react";
 import SectionContent from "./SectionContent/SectionContent";
 import SectionHeaders from "./SectionHeaders/SectionHeaders";
 import SectionContentElement from "./SectionContent/SectionContentElement/SectionContentElement";
+import ParticipantEssentials from "./SectionContent/ParticipantEssentials/ParticipantEssentials";
+import CampBriefing from "./SectionContent/CampBriefing/CampBriefing";
+import VatInvocies from "./SectionContent/VatInvoices/VatInvocies";
+import RefundsAndCancellations from "./SectionContent/RefundsAndCancellations/RefundsAndCancellations";
 
 export default function Participant() {
   const [selectedSection, setSelectedSection] = useState(0);
@@ -19,17 +23,17 @@ export default function Participant() {
         <SectionContentElement className="bg-red-900 text-center">
           <span>Content 2</span>
         </SectionContentElement>
-        <SectionContentElement className="bg-cyan-950 text-right">
-          <span>Content 3</span>
+        <SectionContentElement>
+          <ParticipantEssentials />
         </SectionContentElement>
-        <SectionContentElement className="bg-red-900 text-center">
-          <span>Content 4</span>
+        <SectionContentElement>
+          <CampBriefing />
         </SectionContentElement>
-        <SectionContentElement className="bg-cyan-950 text-left">
-          <span>Content 5</span>
+        <SectionContentElement>
+          <VatInvocies />
         </SectionContentElement>
-        <SectionContentElement className="bg-red-900 text-center">
-          <span>Content 6</span>
+        <SectionContentElement>
+          <RefundsAndCancellations />
         </SectionContentElement>
         <SectionContentElement className="bg-cyan-950 text-right">
           <span>Content 7</span>

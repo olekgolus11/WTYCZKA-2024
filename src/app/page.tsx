@@ -3,6 +3,7 @@ import Clock from "@/components/Clock/Clock";
 import Image from "next/image";
 import wtyczkaLogo from "../../public/wtyczkaLogo/wtyczka-logo.png";
 import { useLanguageModeContext } from "@/contexts/LanguageModeContext";
+import { FORM_LINK } from "@/services/formLink";
 
 export default function Home() {
   const { languageMode } = useLanguageModeContext();
@@ -13,7 +14,7 @@ export default function Home() {
           src={wtyczkaLogo}
           alt="wtyczka Logo"
           priority={true}
-          className="max-w-xs vsm:max-w-xl"
+          className="min-w-full"
         />
         <h2 className="capitalize font-semibold tracking-wide text-xl text-center">
           {languageMode === "english"
@@ -21,7 +22,10 @@ export default function Home() {
             : "wyjazd integracyjno-szkoleniowy"}
         </h2>
         <div className="flex flex-wrap gap-4 items-center justify-center">
-          <button className="button-round button-filled">
+          <button
+            className="button-round button-filled"
+            onClick={() => window.open(FORM_LINK, "_blank")}
+          >
             {languageMode === "english" ? "Sign up" : "Zapisz się"}
           </button>
           <button className="button-round button-outlined">

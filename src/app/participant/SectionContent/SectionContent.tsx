@@ -6,7 +6,7 @@ const SectionContent = ({
   children: React.ReactNode;
 }) => {
   return (
-    <section className="overflow-x-hidden h-full">
+    <section className="overflow-hidden h-full">
       <div
         className="flex transition-transform duration-500 ease-in-out h-full"
         style={{ transform: `translateX(-${selectedSection * 100}%)` }}

@@ -1,4 +1,8 @@
-import { upperLineStyle, middleLineStyle, lowerLineStyle } from "./navIconStyles";
+import {
+  upperLineStyle,
+  middleLineStyle,
+  lowerLineStyle,
+} from "./navIconStyles";
 
 const NavIcon = ({ iconState }: { iconState: boolean }) => {
   return (

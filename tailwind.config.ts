@@ -8,9 +8,6 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      screens: {
-        vsm: "425px",
-      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
@@ -26,6 +23,16 @@ const config: Config = {
         "active-color": "#b30080",
       },
       stroke: {
+        "primary-color": "#EE00AB",
+        "secondary-color": "#ff4dcc",
+        "active-color": "#b30080",
+      },
+      borderColor: {
+        "primary-color": "#EE00AB",
+        "secondary-color": "#ff4dcc",
+        "active-color": "#b30080",
+      },
+      boxShadowColor: {
         "primary-color": "#EE00AB",
         "secondary-color": "#ff4dcc",
         "active-color": "#b30080",
