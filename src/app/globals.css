@@ -70,6 +70,10 @@
   background-color: #ee00ab;
 }
 
+*::-webkit-file-upload-button {
+  display: none;
+}
+
 @media (pointer: coarse) {
   .scrollable::-webkit-scrollbar {
     display: none;

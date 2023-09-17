@@ -1,11 +1,11 @@
 import { useLanguageModeContext } from "@/contexts/LanguageModeContext";
-import { VatInvociesTextEN, VatInvociesTextPL } from "../textContent";
+import { VatInvoicesTextEN, VatInvoicesTextPL } from "../textContent";
 import TextWithCopyPattern from "@/components/TextWithCopyPattern/TextWithCopyPattern";
 
-const VatInvocies = () => {
+const VatInvoices = () => {
   const { languageMode } = useLanguageModeContext();
   const usedLanguageText =
-    languageMode === "polish" ? VatInvociesTextPL : VatInvociesTextEN;
+    languageMode === "polish" ? VatInvoicesTextPL : VatInvoicesTextEN;
   return (
     <p className="text-xl text-center break-words tracking-wide w-full">
       <TextWithCopyPattern
@@ -17,4 +17,4 @@ const VatInvocies = () => {
   );
 };
 
-export default VatInvocies;
+export default VatInvoices;

@@ -5,8 +5,10 @@ import SectionHeaders from "./SectionHeaders/SectionHeaders";
 import SectionContentElement from "./SectionContent/SectionContentElement/SectionContentElement";
 import ParticipantEssentials from "./SectionContent/ParticipantEssentials/ParticipantEssentials";
 import CampBriefing from "./SectionContent/CampBriefing/CampBriefing";
-import VatInvocies from "./SectionContent/VatInvoices/VatInvocies";
+import VatInvoices from "./SectionContent/VatInvoices/VatInvoices";
 import RefundsAndCancellations from "./SectionContent/RefundsAndCancellations/RefundsAndCancellations";
+import RegistrationForm from "@/components/RegistrationForm/RegistrationForm";
+import PaymentsForm from "@/components/PaymentsForm/PaymentForm";
 
 export default function Participant() {
   const [selectedSection, setSelectedSection] = useState(0);
@@ -17,22 +19,22 @@ export default function Participant() {
         setSelectedSection={setSelectedSection}
       />
       <SectionContent selectedSection={selectedSection}>
-        <SectionContentElement className="bg-cyan-950 text-left">
-          <span>Content 1</span>
+        <SectionContentElement className="bg-black text-left justify-start">
+            <RegistrationForm />
         </SectionContentElement>
-        <SectionContentElement className="bg-red-900 text-center">
-          <span>Content 2</span>
+        <SectionContentElement className="bg-black text-left justify-start">
+            <PaymentsForm />
         </SectionContentElement>
-        <SectionContentElement>
+        <SectionContentElement className="flex">
           <ParticipantEssentials />
         </SectionContentElement>
-        <SectionContentElement>
+        <SectionContentElement className="flex">
           <CampBriefing />
         </SectionContentElement>
-        <SectionContentElement>
-          <VatInvocies />
+        <SectionContentElement className="flex">
+          <VatInvoices />
         </SectionContentElement>
-        <SectionContentElement>
+        <SectionContentElement className="flex">
           <RefundsAndCancellations />
         </SectionContentElement>
         <SectionContentElement className="bg-cyan-950 text-right">

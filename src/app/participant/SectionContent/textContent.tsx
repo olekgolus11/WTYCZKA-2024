@@ -52,12 +52,12 @@ export const CampBriefingTextEN = {
   linkEnd: 5,
 };
 
-export const VatInvociesTextPL = {
+export const VatInvoicesTextPL = {
   content:
     "Uczestnicy którzy chcą otrzymać fakturę VAT za Wyjazd „Wtyczka 2023”, zobowiązani są zgłosić ten fakt podczas wypełniania formularza rejestracyjnego oraz wysłać wiadomość mailową na adres wtyczka@samorzad.p.lodz.pl i h.krauza@samorzad.p.lodz.pl. Wiadomość powinna zawierać wszelkie niezbędne dane do wystawienia faktury VAT (imię, nazwisko, numer NIP, adres odbiorcy faktury) oraz telefon kontaktowy. Informujemy jednocześnie, iż faktury VAT wystawiane będą dopiero po zakończeniu Wtyczki, tj. od dnia 1.11.2022 r. Po odbiór faktury można zgłosić się do biura Wydziałowej Rady Samorządu przy ul. Bohdana Stefanowskiego 18/22, I piętro (obok bufetu) po wcześniejszym ustaleniu mailowym terminu odbioru faktury. Możliwe jest także otrzymanie faktury pocztą (adres do przesłania faktury musi podany być w mailu dotyczącym otrzymania faktury). Czas oczekiwania na fakturę VAT może wynosić nawet do 30 dni roboczych.",
 };
 
-export const VatInvociesTextEN = {
+export const VatInvoicesTextEN = {
   content:
     "Participants who want to receive a VAT invoice for the Trip “Wtyczka 2023” are obliged to report this fact during the registration form and send an e-mail to wtyczka@samorzad.p.lodz.pl and h.krauza@samorzad.p.lodz.pl. The message should contain all the necessary data to issue a VAT invoice (name, surname, tax identification number, address of the invoice recipient) and a contact phone number. We also inform that VAT invoices will be issued only after the end of the Wtyczka, i.e. from November 1, 2022. To receive the invoice, you can go to the office of the Faculty Council of the Student Government at Bohdana Stefanowskiego 18/22, 1st floor (next to the buffet) after prior arrangement of the date of receipt by e-mail. It is also possible to receive the invoice by post (the address to send the invoice must be given in the e-mail regarding the receipt of the invoice). The waiting time for a VAT invoice may be up to 30 business days.",
 };
