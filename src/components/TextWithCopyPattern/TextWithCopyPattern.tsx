@@ -1,6 +1,6 @@
 import { useLanguageModeContext } from "@/contexts/LanguageModeContext";
 import copyToClipboard from "@/functions/copyToClipboard";
-import removeBorderPunctiation from "@/functions/removeBorderPunctiation";
+import removeBorderPunctuation from "@/functions/removeBorderPunctuation";
 import useScreenWidth from "@/hooks/useScreenWidth";
 import { useState } from "react";
 
@@ -29,7 +29,7 @@ const TextWithCopyPattern = ({
                   setTimeout(() => {
                     setIsPopupVisible(false);
                   }, 2000);
-                  copyToClipboard(word, removeBorderPunctiation);
+                  copyToClipboard(word, removeBorderPunctuation);
                 }}
               >
                 {word}

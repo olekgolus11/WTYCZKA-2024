@@ -7,7 +7,7 @@ const VatInvoices = () => {
   const usedLanguageText =
     languageMode === "polish" ? VatInvoicesTextPL : VatInvoicesTextEN;
   return (
-    <p className="text-xl text-center break-words tracking-wide w-full">
+    <p className="text-xl text-left break-words tracking-wide w-full xl:text-center">
       <TextWithCopyPattern
         text={usedLanguageText.content}
         pattern="@"

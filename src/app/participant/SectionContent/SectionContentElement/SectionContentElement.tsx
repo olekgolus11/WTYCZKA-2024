@@ -1,13 +1,19 @@
 const SectionContentElement = ({
   children,
   className,
+  elementType,
 }: {
-  className?: string;
   children: React.ReactNode;
+  className?: string;
+  elementType: "form" | "text";
 }) => {
+  const textClassName =
+    "flex flex-col items-center justify-top gap-6 xl:justify-center";
   return (
     <div
-      className={`min-w-full flex-col overflow-y-auto px-4 py-6 items-center justify-top gap-6 xl:justify-center sm:px-10 xl:px-32 ${className}`}
+      className={`min-w-full overflow-y-auto px-4 py-6 sm:px-10 xl:px-32 ${
+        elementType === "text" ? textClassName : ""
+      } ${className ? className : ""}`}
     >
       {children}
     </div>

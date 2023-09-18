@@ -4,16 +4,17 @@ import { DevTool } from "@hookform/devtools";
 import { useLanguageModeContext } from "@/contexts/LanguageModeContext";
 import FormSelect from "./FormSelect";
 import {
-  additionalConsentLabel,
-  degreeOptions,
-  dietOptions,
-  invoiceOptions,
-  personalConsentLabel,
-  sessionOptions,
-  sexOptions,
-  shirtSizeOptions,
-  sourceOptions,
-  statuteConsentLabel,
+  AdditionalConsentLabel,
+  DegreeOptions,
+  DietOptions,
+  FacultyOptions,
+  InvoiceOptions,
+  PersonalConsentLabel,
+  SessionOptions,
+  SexOptions,
+  ShirtSizeOptions,
+  SourceOptions,
+  StatuteConsentLabel,
 } from "./selectOptions";
 import { Typography } from "@mui/material";
 import FormCheckbox from "./FormCheckbox";
@@ -52,16 +53,13 @@ const RegistrationForm = () => {
 
   return (
     <FormProvider {...methods}>
-      <form
-        onSubmit={methods.handleSubmit(onSubmit)}
-      >
+      <form onSubmit={methods.handleSubmit(onSubmit)}>
         <Typography variant="h3" className=" text-center pb-4">
           {languageMode == "english"
             ? "Sign up for the trip"
             : "Zapisz się na wyjazd"}
         </Typography>
-        <Typography variant="h6" className="text-primary-color p-4"
-        >
+        <Typography variant="h6" className="text-primary-color p-4">
           {languageMode == "english"
             ? "Participant information"
             : "Informacje o uczestniku"}
@@ -109,7 +107,7 @@ const RegistrationForm = () => {
             label={languageMode == "english" ? "Sex" : "Płeć"}
             registerName="sex"
             isRequired={true}
-            options={languageMode == "english" ? sexOptions.EN : sexOptions.PL}
+            options={languageMode == "english" ? SexOptions.EN : SexOptions.PL}
           />
           <FormField
             label={languageMode == "english" ? "Postal code" : "Kod pocztowy"}
@@ -138,17 +136,21 @@ const RegistrationForm = () => {
             maxLength={20}
           />
         </div>
-        <Typography variant="h6" className="text-primary-color "
-        sx={{ margin: "1rem"}}>
+        <Typography
+          variant="h6"
+          className="text-primary-color "
+          sx={{ margin: "1rem" }}
+        >
           {languageMode == "english" ? "Student details" : "Dane studenta"}
         </Typography>
         <div className="flex flex-col md:grid md:grid-cols-3">
-          <FormField
-            label={languageMode == "english" ? "Force" : "Jednostka"}
-            registerName="force"
+          <FormSelect
+            label={languageMode == "english" ? "Faculty" : "Wydział"}
+            registerName="faculty"
             isRequired={true}
-            minLength={3}
-            maxLength={20}
+            options={
+              languageMode == "english" ? FacultyOptions.EN : FacultyOptions.PL
+            }
           />
           <FormField
             label={languageMode == "english" ? "Index number" : "Numer indeksu"}
@@ -162,18 +164,21 @@ const RegistrationForm = () => {
             registerName="degree"
             isRequired={true}
             options={
-              languageMode == "english" ? degreeOptions.EN : degreeOptions.PL
+              languageMode == "english" ? DegreeOptions.EN : DegreeOptions.PL
             }
           />
           <FormSelect
             label={languageMode == "english" ? "Session" : "Semestr"}
             registerName="session"
             isRequired={true}
-            options={sessionOptions.PL}
+            options={SessionOptions.PL}
           />
         </div>
-        <Typography variant="h6" className="text-primary-color"
-        sx={{ margin: "1rem"}}>
+        <Typography
+          variant="h6"
+          className="text-primary-color"
+          sx={{ margin: "1rem" }}
+        >
           {languageMode == "english"
             ? "Additional questions"
             : "Dodatkowe informacje"}
@@ -184,7 +189,7 @@ const RegistrationForm = () => {
             registerName="diet"
             isRequired={true}
             options={
-              languageMode == "english" ? dietOptions.EN : dietOptions.PL
+              languageMode == "english" ? DietOptions.EN : DietOptions.PL
             }
           />
           <FormSelect
@@ -193,11 +198,11 @@ const RegistrationForm = () => {
               languageMode == "english" ? "T-shirt size" : "Rozmiar koszulki"
             }
             isRequired={true}
-            options={shirtSizeOptions.PL}
+            options={ShirtSizeOptions.PL}
           />
           <FormField
-            label={languageMode == "english" ? "Foot size" : "Rozmiar stopy"}
-            registerName="footSize"
+            label={languageMode == "english" ? "Shoe size" : "Rozmiar buta"}
+            registerName="shoeSize"
             isRequired={true}
             minLength={2}
             maxLength={20}
@@ -212,7 +217,7 @@ const RegistrationForm = () => {
             registerName="source"
             isRequired={true}
             options={
-              languageMode == "english" ? sourceOptions.EN : sourceOptions.PL
+              languageMode == "english" ? SourceOptions.EN : SourceOptions.PL
             }
           />
           <FormSelect
@@ -220,18 +225,18 @@ const RegistrationForm = () => {
             registerName="invoice"
             isRequired={true}
             options={
-              languageMode == "english" ? invoiceOptions.EN : invoiceOptions.PL
+              languageMode == "english" ? InvoiceOptions.EN : InvoiceOptions.PL
             }
           />
         </div>
         <div className="flex flex-col m-4">
-          <FormCheckbox label={statuteConsentLabel} name="statuteAccept" />
+          <FormCheckbox label={StatuteConsentLabel} name="statuteAccept" />
           <FormCheckbox
-            label={personalConsentLabel}
+            label={PersonalConsentLabel}
             name="personalDataAccept"
           />
           <FormCheckbox
-            label={additionalConsentLabel}
+            label={AdditionalConsentLabel}
             name="additionalAccept"
           />
         </div>

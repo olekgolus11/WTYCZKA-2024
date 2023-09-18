@@ -4,19 +4,19 @@
 
 @layer components {
   .date-label {
-    @apply mb-0 text-small-label;
+    @apply text-3xl sm:text-small-label;
   }
 
   .date-counter {
-    @apply mt-[0.7rem] mb-0 text-[9rem] pb-0 leading-tight tracking-wider;
+    @apply text-[9rem] leading-tight tracking-wider;
   }
 
   .counter-label {
-    @apply mt-0 font-medium text-small-label;
+    @apply font-medium text-3xl sm:text-small-label;
   }
 
   .applyBasicButtonStyles {
-    @apply p-0 border-none bg-opacity-0 cursor-pointer font-bold whitespace-nowrap;
+    @apply p-0 border-none bg-opacity-0 cursor-pointer font-bold text-center;
   }
 
   .button-square {
@@ -55,7 +55,6 @@
   scrollbar-color: #ee00ab #f8fafc;
 }
 
-/* Chrome, Edge and Safari */
 *::-webkit-scrollbar {
   width: 10px;
   width: 10px;
@@ -74,6 +73,33 @@
   display: none;
 }
 
+body {
+  color: rgb(var(--foreground-rgb));
+  min-height: 100svh;
+  background: url("/background.png") no-repeat right #000000;
+  -o-background-size: cover;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  background-size: cover;
+}
+
+html {
+  --nav-height: 82px;
+  --section-headers-height: 56px;
+  scroll-padding-top: var(--nav-height);
+  scroll-behavior: smooth;
+}
+
+main {
+  height: calc(100svh - var(--nav-height) - 2px);
+}
+
+.section-content-wrapper {
+  height: calc(
+    100svh - var(--nav-height) - var(--section-headers-height) - 2px
+  );
+}
+
 @media (pointer: coarse) {
   .scrollable::-webkit-scrollbar {
     display: none;
@@ -83,21 +109,4 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-  height: calc(100svh - var(--nav-height));
-}
-
-html {
-  --nav-height: 82px;
-  scroll-padding-top: var(--nav-height);
-  scroll-behavior: smooth;
 }

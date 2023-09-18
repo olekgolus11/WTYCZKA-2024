@@ -1,22 +1,23 @@
 interface navLinkInterface {
   title: string;
-  path: string;
+  href: string;
+  isInternal: boolean;
 }
 
 export const MAIN_PAGE = "/";
-const PARTICIPANT_PAGE = "/participant";
-const REGULATIONS_PAGE = "/regulations";
+export const PARTICIPANT_PAGE = "/participant";
+const REGULATIONS_PAGE = "https://google.com";
 const CONTACT_PAGE = "/contact";
 
 export const navLinksPL: navLinkInterface[] = [
-  { title: "Strona Główna", path: MAIN_PAGE },
-  { title: "Dla uczestników", path: PARTICIPANT_PAGE },
-  { title: "Regulamin", path: REGULATIONS_PAGE },
-  { title: "Kontakt", path: CONTACT_PAGE },
+  { title: "Strona Główna", href: MAIN_PAGE, isInternal: true },
+  { title: "Dla uczestników", href: PARTICIPANT_PAGE, isInternal: true },
+  { title: "Regulamin", href: REGULATIONS_PAGE, isInternal: false },
+  { title: "Kontakt", href: CONTACT_PAGE, isInternal: true },
 ];
 export const navLinksEN: navLinkInterface[] = [
-  { title: "Home", path: MAIN_PAGE },
-  { title: "For participants", path: PARTICIPANT_PAGE },
-  { title: "Regulations", path: REGULATIONS_PAGE },
-  { title: "Contact", path: CONTACT_PAGE },
+  { title: "Home", href: MAIN_PAGE, isInternal: true },
+  { title: "For participants", href: PARTICIPANT_PAGE, isInternal: true },
+  { title: "Regulations", href: REGULATIONS_PAGE, isInternal: false },
+  { title: "Contact", href: CONTACT_PAGE, isInternal: true },
 ];

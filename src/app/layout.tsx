@@ -5,6 +5,7 @@ import { Montserrat } from "next/font/google";
 import { ThemeProvider, createTheme } from "@mui/material";
 import Navbar from "@/components/Navbar/Navbar";
 import { LanguageModeContextProvider } from "@/contexts/LanguageModeContext";
+import { SelectedSectionContextProvider } from "@/contexts/SelectedSectionContext";
 import { MuiSetup } from "@/styles/muiThemeSetup";
 
 const montserrat = Montserrat({
@@ -27,11 +28,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${montserrat.className} h-screen p-0 m-0 box-border`}>
+      <body className={`${montserrat.className} p-0 m-0 box-border`}>
         <ThemeProvider theme={theme}>
           <LanguageModeContextProvider>
-            <Navbar />
-            {children}
+            <SelectedSectionContextProvider>
+              <Navbar />
+              {children}
+            </SelectedSectionContextProvider>
           </LanguageModeContextProvider>
         </ThemeProvider>
       </body>

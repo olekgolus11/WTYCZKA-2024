@@ -49,7 +49,7 @@ const PaymentsForm = () => {
           <FormProvider {...methods}>
             <form
               onSubmit={methods.handleSubmit(onSubmit)}
-              className="md:px-32 md:py-8 px-4 py-4 flex flex-col gap-1 justify-center items-center"
+              className="flex flex-col gap-1 justify-center items-center"
             >
               <Typography variant="h5" className=" text-center">
                 {languageMode == "english"
@@ -58,25 +58,29 @@ const PaymentsForm = () => {
               </Typography>
               <Typography variant="h5" className=" text-center">
                 {languageMode == "english"
-                  ? "Number of account for payment: xx xxxx xxxx xxxx xxxx"
+                  ? "Title of the transfer: WTYCZKA2023-FirstNameLastName  Amount: xxx zł"
                   : "Tytuł przelewu: WTYCZKA2023-ImieNazwisko  Kwota: xxx zł "}
               </Typography>
-              <div className="grid grid-cols-1 gap-1 justify-center items-center  md:min-w-[30rem]">
-                <div className="xl:flex-row gap-1 flex flex-col">
-                <FormField
-                  label={languageMode == "english" ? "Name" : "Imię"}
-                  isRequired={false}
-                  minLength={3}
-                  maxLength={30}
-                  registerName="name"
-                />
-                <FormField
-                  label={languageMode == "english" ? "Surname" : "Nazwisko"}
-                  isRequired={false}
-                  minLength={3}
-                  maxLength={30}
-                  registerName="surname"
-                />
+              <div className="grid grid-cols-1 gap-1 justify-center items-center w-full sm:w-5/6 xl:w-1/2">
+                <div className="flex gap-1 w-full max-xl:flex-col">
+                  <div className="w-full">
+                    <FormField
+                      label={languageMode == "english" ? "First name" : "Imię"}
+                      isRequired={true}
+                      minLength={3}
+                      maxLength={30}
+                      registerName="name"
+                    />
+                  </div>
+                  <div className="w-full">
+                    <FormField
+                      label={languageMode == "english" ? "Last Name" : "Nazwisko"}
+                      isRequired={true}
+                      minLength={3}
+                      maxLength={30}
+                      registerName="surname"
+                    />
+                  </div>
                 </div>
                 <FormField
                   label={
@@ -84,14 +88,14 @@ const PaymentsForm = () => {
                       ? "E-mail address"
                       : "Adres e-mail"
                   }
-                  isRequired={false}
+                  isRequired={true}
                   minLength={3}
                   maxLength={30}
                   registerName="email"
                 />
                 <FormField
                   label={"PESEL"}
-                  isRequired={false}
+                  isRequired={true}
                   minLength={11}
                   maxLength={11}
                   registerName="pesel"
@@ -106,7 +110,7 @@ const PaymentsForm = () => {
                     type="file"
                     InputProps={{
                       endAdornment: (
-                        <InputAdornment position="end" >
+                        <InputAdornment position="end">
                           <UploadFileIcon sx={{ color: "white" }} />
                         </InputAdornment>
                       ),
@@ -128,7 +132,7 @@ const PaymentsForm = () => {
       );
     } else {
       return (
-        <div className="flex justify-center items-center h-screen">
+        <div className="flex justify-center items-center h-full text-center">
           <Typography variant="h5" className=" text-center text-primary-color">
             {languageMode == "english"
               ? "Currently we are not accepting payments!"

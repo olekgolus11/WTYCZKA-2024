@@ -80,7 +80,7 @@ const Clock = () => {
   };
 
   return (
-    <div className="inline-flex items-center justify-center flex-col font-bold text-center bg">
+    <div className="inline-flex items-center justify-center flex-col font-bold text-center gap-1">
       {setCounterInfo()}
     </div>
   );

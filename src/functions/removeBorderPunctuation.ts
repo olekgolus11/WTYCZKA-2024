@@ -1,4 +1,4 @@
-const removeBorderPunctiation = (text: string): string => {
+const removeBorderPunctuation = (text: string): string => {
   if (/^[.,!?]/.test(text)) {
     text = text.slice(1);
   }
@@ -8,4 +8,4 @@ const removeBorderPunctiation = (text: string): string => {
   return text;
 };
 
-export default removeBorderPunctiation;
+export default removeBorderPunctuation;

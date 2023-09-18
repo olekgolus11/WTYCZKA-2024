@@ -21,6 +21,7 @@ const config: Config = {
         "primary-color": "#EE00AB",
         "secondary-color": "#ff4dcc",
         "active-color": "#b30080",
+        "mobile-grey": "#050505",
       },
       stroke: {
         "primary-color": "#EE00AB",

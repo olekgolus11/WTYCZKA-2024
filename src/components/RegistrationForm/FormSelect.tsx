@@ -20,11 +20,7 @@ const FormSelect = ({
   return (
     <div className="flex flex-col w-auto m-4 gap-1">
       <Typography variant="subtitle1">
-        {label}{" "}
-        <span className="text-primary-color">
-          {isRequired &&
-            (languageMode == "english" ? "(required)" : "(wymagane)")}
-        </span>
+        {label} {isRequired && <span className="text-primary-color">*</span>}
       </Typography>
       <Controller
         control={control}

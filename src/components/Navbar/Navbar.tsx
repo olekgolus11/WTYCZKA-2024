@@ -7,7 +7,7 @@ import {
   cardViewportProperties,
   createAnimateOnScroll,
 } from "../../animations/animateOnScroll";
-import setNavbarHeight from "../../constants/setNavbarHeight";
+import setCustomHeightProperty from "../../constants/setCustomHeightProperty";
 import useScreenWidth from "@/hooks/useScreenWidth";
 import DesktopNavigation from "./DesktopNavigation/DesktopNavigation";
 import MobileNavigation from "./MobileNavigation/MobileNavigation";
@@ -19,12 +19,20 @@ const Navbar = () => {
   const pathname = usePathname();
 
   useEffect(() => {
-    setNavbarHeight();
+    setCustomHeightProperty("navbar", "--navbar-height");
+    setCustomHeightProperty("section-headers", "--section-headers-height");
   }, [screenWidth]);
 
   return (
-    <nav className="sticky top-0 w-full z-10 py-4 bg-black" id="navbar">
-      <section className="flex items-center justify-around">
+    <nav
+      className={`sticky top-0 w-full z-10 py-4 ${
+        screenWidth > mobileNavbarThreshold
+          ? "bg-transparent"
+          : "bg-mobile-grey shadow-md shadow-mobile-grey"
+      }`}
+      id="navbar"
+    >
+      <section className="flex items-center justify-evenly">
         <div>
           <Link href={MAIN_PAGE}>
             <m.h3
