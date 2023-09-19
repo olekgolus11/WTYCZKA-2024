@@ -1,28 +1,11 @@
 "use client";
-import { useState } from "react";
 import { useLanguageModeContext } from "../../contexts/LanguageModeContext";
+import useDaysLeft from "@/hooks/useDaysLeft";
+import { EVENT_DATE } from "@/constants/eventDates";
 
 const Clock = () => {
-  const ONE_MINUTE = 60000;
-  const ONE_HOUR = 3600000;
-  const ONE_DAY = 86400000;
-  const WTYCZKA_EVENT_DATE = "2023-10-26";
-  const eventDate = new Date(WTYCZKA_EVENT_DATE);
-
-  const countDaysLeft = () => {
-    const currentDate = new Date();
-    const counterResult: number = Math.floor(
-      (+eventDate.getTime() - +currentDate.getTime() + ONE_HOUR) / ONE_DAY + 1
-    );
-    return counterResult != 0 ? counterResult : 0;
-  };
-
-  const [daysLeft, setDaysLeft] = useState(countDaysLeft());
+  const daysLeft = useDaysLeft(EVENT_DATE);
   const { languageMode } = useLanguageModeContext();
-
-  setInterval(() => {
-    setDaysLeft(countDaysLeft());
-  }, ONE_MINUTE);
 
   const setCounterInfo = () => {
     if (daysLeft > 0) {
@@ -48,10 +31,10 @@ const Clock = () => {
     } else if (daysLeft === 0) {
       return (
         <>
-          <h3 className="font-medium text-small-label">
+          <h3 className="font-semibold text-small-label">
             {languageMode == "polish" ? "Wydarzenie" : "The event"}
           </h3>
-          <h2 className="mt-[0.2rem] text-bigger-label">
+          <h2 className="mt-[0.2rem] text-bigger-label font-bold">
             {languageMode == "polish" ? "Trwa" : "Has begun"}
           </h2>
         </>

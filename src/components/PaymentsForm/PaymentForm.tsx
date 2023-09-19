@@ -5,7 +5,8 @@ import { FormProvider, useForm } from "react-hook-form";
 import FormField from "../RegistrationForm/FormField";
 import UploadFileIcon from "@mui/icons-material/UploadFile";
 import { DevTool } from "@hookform/devtools";
-import { useState } from "react";
+import useDaysLeft from "@/hooks/useDaysLeft";
+import { PAYMENT_DATE } from "@/constants/eventDates";
 
 type FormValues = {
   name: string;
@@ -16,34 +17,16 @@ type FormValues = {
 };
 
 const PaymentsForm = () => {
-  const ONE_MINUTE = 60000;
-  const ONE_HOUR = 3600000;
-  const ONE_DAY = 86400000;
-  const WTYCZKA_PAYMENT_DEADLINE = "2023-09-18";
-  const eventDate = new Date(WTYCZKA_PAYMENT_DEADLINE);
   const { languageMode } = useLanguageModeContext();
   const methods = useForm<FormValues>({ mode: "onBlur" });
-
-  const countDaysLeft = () => {
-    const currentDate = new Date();
-    const counterResult: number = Math.floor(
-      (+eventDate.getTime() - +currentDate.getTime() + ONE_HOUR) / ONE_DAY + 1
-    );
-    return counterResult != 0 ? counterResult : 0;
-  };
-
-  const [daysLeft, setDaysLeft] = useState(countDaysLeft());
-
-  setInterval(() => {
-    setDaysLeft(countDaysLeft());
-  }, ONE_MINUTE);
+  const daysLeft = useDaysLeft(PAYMENT_DATE);
 
   const onSubmit = (data: any) => {
     console.log(data);
   };
 
   const setPaymentStage = () => {
-    if (daysLeft >= 0) {
+    if (daysLeft <= 0) {
       return (
         <div>
           <FormProvider {...methods}>
@@ -74,7 +57,9 @@ const PaymentsForm = () => {
                   </div>
                   <div className="w-full">
                     <FormField
-                      label={languageMode == "english" ? "Last Name" : "Nazwisko"}
+                      label={
+                        languageMode == "english" ? "Last Name" : "Nazwisko"
+                      }
                       isRequired={true}
                       minLength={3}
                       maxLength={30}
@@ -132,8 +117,8 @@ const PaymentsForm = () => {
       );
     } else {
       return (
-        <div className="flex justify-center items-center h-full text-center">
-          <Typography variant="h5" className=" text-center text-primary-color">
+        <div className="flex justify-center items-center h-full text-center text-primary-color px-4 py-6 sm:px-10 xl:px-32">
+          <Typography variant="h5">
             {languageMode == "english"
               ? "Currently we are not accepting payments!"
               : "Obecnie nie przyjmujemy wpłat!"}
@@ -143,7 +128,7 @@ const PaymentsForm = () => {
     }
   };
 
-  return <div>{setPaymentStage()}</div>;
+  return <>{setPaymentStage()}</>;
 };
 
 export default PaymentsForm;
