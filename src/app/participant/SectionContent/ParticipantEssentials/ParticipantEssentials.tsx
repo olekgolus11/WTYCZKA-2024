@@ -16,7 +16,12 @@ const ParticipantEssentials = () => {
       : ParticipantEssentialsTextEN;
   return (
     <>
-      <AnimateWrapper duration={1} delay={0.1} type="FadeInTop">
+      <AnimateWrapper
+        duration={1}
+        delay={0.1}
+        type="FadeInTop"
+        className="overflow-visible"
+      >
         <h2 className="text-3xl text-secondary-color text-center uppercase">
           {usedLanguageText.heading}
         </h2>
