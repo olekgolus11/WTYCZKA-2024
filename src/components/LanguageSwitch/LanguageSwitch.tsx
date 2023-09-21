@@ -1,3 +1,4 @@
+import AnimateWrapper from "@/animations/AnimateWrapper";
 import PL_IMG from "../../../public/languageIcons/poland.png";
 import EN_IMG from "../../../public/languageIcons/united-kingdom.png";
 import { useLanguageModeContext } from "../../contexts/LanguageModeContext";
@@ -11,17 +12,19 @@ const LanguageSwitch = ({ className }: { className?: string }) => {
     );
   };
   return (
-    <div
-      className={`${className} cursor-pointer flex`}
-      onClick={toggleLanguageMode}
-    >
-      <Image
-        src={languageMode === "polish" ? EN_IMG : PL_IMG}
-        width={30}
-        height={30}
-        alt="language-switch-icon"
-      />
-    </div>
+    <AnimateWrapper duration={1} delay={0.7} type="FadeInLeft">
+      <div
+        className={`cursor-pointer flex ${className}`}
+        onClick={toggleLanguageMode}
+      >
+        <Image
+          src={languageMode === "polish" ? EN_IMG : PL_IMG}
+          width={30}
+          height={30}
+          alt="language-switch-icon"
+        />
+      </div>
+    </AnimateWrapper>
   );
 };
 

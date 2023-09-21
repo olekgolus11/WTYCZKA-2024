@@ -20,6 +20,7 @@ import { Typography } from "@mui/material";
 import FormCheckbox from "./FormCheckbox";
 import useDaysLeft from "@/hooks/useDaysLeft";
 import { REGISTRATION_DATE } from "@/constants/eventDates";
+import AnimateWrapper from "@/animations/AnimateWrapper";
 
 type FormValues = {
   firstName: string;
@@ -57,27 +58,53 @@ const RegistrationForm = () => {
   return (
     <>
       {daysLeft > 0 ? (
-        <div className="flex justify-center items-center h-full text-center text-primary-color px-4 py-6 sm:px-10 xl:px-32">
+        <AnimateWrapper
+          className="flex justify-center items-center h-full text-center text-primary-color px-4 py-6 sm:px-10 xl:px-32"
+          duration={1}
+          delay={0.1}
+          type="FadeInBottom"
+          once={true}
+        >
           <Typography variant="h5">
             {languageMode == "english"
               ? "Registration is not currently available!"
               : "Obecnie nie prowadzimy rejestracji!"}
           </Typography>
-        </div>
+        </AnimateWrapper>
       ) : (
         <FormProvider {...methods}>
           <form onSubmit={methods.handleSubmit(onSubmit)}>
-            <Typography variant="h3" className=" text-center pb-4">
-              {languageMode == "english"
-                ? "Sign up for the trip"
-                : "Zapisz się na wyjazd"}
-            </Typography>
-            <Typography variant="h6" className="text-primary-color p-4">
-              {languageMode == "english"
-                ? "Participant information"
-                : "Informacje o uczestniku"}
-            </Typography>
-            <div className="flex flex-col md:grid md:grid-cols-3">
+            <AnimateWrapper
+              duration={1}
+              delay={0.1}
+              type="FadeInBottom"
+              once={true}
+            >
+              <Typography variant="h3" className=" text-center pb-4">
+                {languageMode == "english"
+                  ? "Sign up for the trip"
+                  : "Zapisz się na wyjazd"}
+              </Typography>
+            </AnimateWrapper>
+            <AnimateWrapper
+              duration={1}
+              delay={0.2}
+              type="FadeInBottom"
+              once={true}
+            >
+              <Typography variant="h6" className="text-primary-color p-4">
+                {languageMode == "english"
+                  ? "Participant information"
+                  : "Informacje o uczestniku"}
+              </Typography>
+            </AnimateWrapper>
+            <AnimateWrapper
+              duration={1}
+              delay={0.3}
+              type="FadeInBottom"
+              className="flex flex-col md:grid md:grid-cols-3"
+              once={true}
+            >
               <FormField
                 label={languageMode == "english" ? "First name" : "Imię"}
                 registerName="firstName"
@@ -154,15 +181,30 @@ const RegistrationForm = () => {
                 minLength={3}
                 maxLength={20}
               />
-            </div>
-            <Typography
-              variant="h6"
-              className="text-primary-color "
-              sx={{ margin: "1rem" }}
+            </AnimateWrapper>
+            <AnimateWrapper
+              duration={1}
+              delay={0.4}
+              type="FadeInBottom"
+              once={true}
             >
-              {languageMode == "english" ? "Student details" : "Dane studenta"}
-            </Typography>
-            <div className="flex flex-col md:grid md:grid-cols-3">
+              <Typography
+                variant="h6"
+                className="text-primary-color "
+                sx={{ margin: "1rem" }}
+              >
+                {languageMode == "english"
+                  ? "Student details"
+                  : "Dane studenta"}
+              </Typography>
+            </AnimateWrapper>
+            <AnimateWrapper
+              duration={1}
+              delay={0.5}
+              type="FadeInBottom"
+              className="flex flex-col md:grid md:grid-cols-3"
+              once={true}
+            >
               <FormSelect
                 label={languageMode == "english" ? "Faculty" : "Wydział"}
                 registerName="faculty"
@@ -198,17 +240,30 @@ const RegistrationForm = () => {
                 isRequired={true}
                 options={SessionOptions.PL}
               />
-            </div>
-            <Typography
-              variant="h6"
-              className="text-primary-color"
-              sx={{ margin: "1rem" }}
+            </AnimateWrapper>
+            <AnimateWrapper
+              duration={1}
+              delay={0.6}
+              type="FadeInBottom"
+              once={true}
             >
-              {languageMode == "english"
-                ? "Additional questions"
-                : "Dodatkowe informacje"}
-            </Typography>
-            <div className="flex flex-col md:grid md:grid-cols-3">
+              <Typography
+                variant="h6"
+                className="text-primary-color"
+                sx={{ margin: "1rem" }}
+              >
+                {languageMode == "english"
+                  ? "Additional questions"
+                  : "Dodatkowe informacje"}
+              </Typography>
+            </AnimateWrapper>
+            <AnimateWrapper
+              duration={1}
+              delay={0.7}
+              type="FadeInBottom"
+              once={true}
+              className="flex flex-col md:grid md:grid-cols-3"
+            >
               <FormSelect
                 label={languageMode == "english" ? "Diet" : "Dieta"}
                 registerName="diet"
@@ -259,8 +314,14 @@ const RegistrationForm = () => {
                     : InvoiceOptions.PL
                 }
               />
-            </div>
-            <div className="flex flex-col m-4">
+            </AnimateWrapper>
+            <AnimateWrapper
+              duration={1}
+              delay={0.8}
+              type="FadeInBottom"
+              once={true}
+              className="flex flex-col m-4"
+            >
               <FormCheckbox label={StatuteConsentLabel} name="statuteAccept" />
               <FormCheckbox
                 label={PersonalConsentLabel}
@@ -270,12 +331,18 @@ const RegistrationForm = () => {
                 label={AdditionalConsentLabel}
                 name="additionalAccept"
               />
-            </div>
-            <div className="flex gap-4 items-center justify-center m-8">
+            </AnimateWrapper>
+            <AnimateWrapper
+              duration={1}
+              delay={0.9}
+              type="FadeInBottom"
+              once={true}
+              className="flex gap-4 items-center justify-center m-8"
+            >
               <button type="submit" className="button-round button-filled ">
                 Submit
               </button>
-            </div>
+            </AnimateWrapper>
           </form>
           {/* <DevTool control={methods.control} /> */}
         </FormProvider>

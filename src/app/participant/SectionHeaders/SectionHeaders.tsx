@@ -1,6 +1,7 @@
 import { useLanguageModeContext } from "@/contexts/LanguageModeContext";
 import { headersEN, headersPL } from "./headers";
 import { useSelectedSectionContext } from "@/contexts/SelectedSectionContext";
+import AnimateWrapper from "@/animations/AnimateWrapper";
 
 const SectionHeaders = () => {
   const { selectedSection, setSelectedSection } = useSelectedSectionContext();
@@ -12,15 +13,21 @@ const SectionHeaders = () => {
     >
       {(languageMode == "polish" ? headersPL : headersEN).map(
         (header, index) => (
-          <span
+          <AnimateWrapper
+            duration={1}
+            delay={0.1 * (index + 1)}
+            type="FadeInLeft"
             key={index}
-            className={`hover:text-secondary-color cursor-pointer block py-4 whitespace-nowrap h-full ${
-              index === selectedSection ? "text-active-color" : "text-white"
-            }`}
-            onClick={() => setSelectedSection(index)}
           >
-            {header}
-          </span>
+            <span
+              className={`hover:text-secondary-color cursor-pointer block py-4 whitespace-nowrap h-full ${
+                index === selectedSection ? "text-active-color" : "text-white"
+              }`}
+              onClick={() => setSelectedSection(index)}
+            >
+              {header}
+            </span>
+          </AnimateWrapper>
         )
       )}
     </section>

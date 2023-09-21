@@ -6,6 +6,7 @@ import {
 } from "../textContent";
 import { Check } from "lucide-react";
 import TextWithAnchor from "@/components/TextWithAnchor/TextWithAnchor";
+import AnimateWrapper from "@/animations/AnimateWrapper";
 
 const ParticipantEssentials = () => {
   const { languageMode } = useLanguageModeContext();
@@ -15,14 +16,19 @@ const ParticipantEssentials = () => {
       : ParticipantEssentialsTextEN;
   return (
     <>
-      <h2 className="text-3xl text-secondary-color text-center uppercase">
-        {usedLanguageText.heading}
-      </h2>
+      <AnimateWrapper duration={1} delay={0.1} type="FadeInTop">
+        <h2 className="text-3xl text-secondary-color text-center uppercase">
+          {usedLanguageText.heading}
+        </h2>
+      </AnimateWrapper>
       <ul className="list-none text-xl">
         {usedLanguageText.bulletPoints.map((bulletPoint, index) => (
-          <li
-            key={index}
+          <AnimateWrapper
+            duration={1}
+            delay={0.1 * (index + 1)}
+            type="FadeInTop"
             className="flex items-start gap-6 justify-start text-left my-2"
+            key={index}
           >
             <Check width={24} height={24} className="min-w-[24px] mt-px" />
             {index === usedLanguageText.bulletLinkIndex ? (
@@ -33,9 +39,9 @@ const ParticipantEssentials = () => {
                 linkEnd={usedLanguageText.linkEnd}
               />
             ) : (
-              <p>{bulletPoint}</p>
+              <span>{bulletPoint}</span>
             )}
-          </li>
+          </AnimateWrapper>
         ))}
       </ul>
     </>

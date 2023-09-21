@@ -4,6 +4,7 @@ import {
   RefundsAndCancellationsTextEN,
 } from "../textContent";
 import TextWithCopyPattern from "@/components/TextWithCopyPattern/TextWithCopyPattern";
+import AnimateWrapper from "@/animations/AnimateWrapper";
 
 const RefundsAndCancellations = () => {
   const { languageMode } = useLanguageModeContext();
@@ -12,13 +13,15 @@ const RefundsAndCancellations = () => {
       ? RefundsAndCancellationsTextPL
       : RefundsAndCancellationsTextEN;
   return (
-    <p className="text-xl text-left break-words tracking-wide w-full xl:text-center">
-      <TextWithCopyPattern
-        text={usedLanguageText.content}
-        pattern="@"
-        slideIndex={5}
-      />
-    </p>
+    <section className="text-xl text-left break-words tracking-wide w-full xl:text-center">
+      <AnimateWrapper duration={1} delay={0.1} type="FadeInTop">
+        <TextWithCopyPattern
+          text={usedLanguageText.content}
+          pattern="@"
+          slideIndex={5}
+        />
+      </AnimateWrapper>
+    </section>
   );
 };
 

@@ -1,12 +1,11 @@
-import { createAnimateOnScroll } from "../../../animations/animateOnScroll";
 import NavIcon from "@/customIcons/NavIcon/NavIcon";
-import { m } from "framer-motion";
 import Link from "next/link";
 import Controls from "../Controls/Controls";
 import { navLinksPL, navLinksEN } from "../NavLinks";
 import { useState } from "react";
 import useClickOutside from "@/hooks/useClickOutside";
 import { useLanguageModeContext } from "@/contexts/LanguageModeContext";
+import AnimateWrapper from "@/animations/AnimateWrapper";
 
 const MobileNavigation = ({ pathname }: { pathname: string }) => {
   const { languageMode } = useLanguageModeContext();
@@ -21,29 +20,33 @@ const MobileNavigation = ({ pathname }: { pathname: string }) => {
 
   return (
     <div ref={menuRef}>
-      <div onClick={handleMenuToggle}>
-        <NavIcon iconState={isMenuOpen} />
-      </div>
+      <AnimateWrapper duration={1} delay={0.1} type="FadeInLeft">
+        <div onClick={handleMenuToggle}>
+          <NavIcon iconState={isMenuOpen} />
+        </div>
+      </AnimateWrapper>
       <div
         className={`absolute ${
           isMenuOpen ? "top-full opacity-100" : "-top-60 opacity-0"
-        } transition-all duration-500 bg-mobile-grey w-screen flex items-center justify-center flex-col gap-4 py-4 origin-top -z-10 left-0`}
+        } transition-all duration-500 bg-mobile-grey w-full flex items-center justify-center flex-col gap-4 py-4 origin-top -z-10 left-0 overflow-hidden`}
       >
         {(languageMode == "polish" ? navLinksPL : navLinksEN).map(
           (navLink, index) => (
-            <m.div
-              initial="visible"
-              whileInView="visible"
-              viewport={{ amount: 0.2, once: false }}
-              variants={createAnimateOnScroll(0.1)}
+            <AnimateWrapper
+              duration={1}
+              delay={0.1}
+              type="FadeInLeft"
               key={index}
               className={`hover:text-secondary-color transition-colors duration-300 text-base w-full text-center ${
                 pathname === navLink.href ? "text-active-color" : "text-white"
               }`}
-              onClick={handleMenuClose}
             >
               {navLink.isInternal ? (
-                <Link href={navLink.href} className="text-xl block">
+                <Link
+                  href={navLink.href}
+                  className="text-xl block"
+                  onClick={handleMenuClose}
+                >
                   {navLink.title}
                 </Link>
               ) : (
@@ -51,11 +54,12 @@ const MobileNavigation = ({ pathname }: { pathname: string }) => {
                   href={navLink.href}
                   target="_blank"
                   className="text-xl block"
+                  onClick={handleMenuClose}
                 >
                   {navLink.title}
                 </a>
               )}
-            </m.div>
+            </AnimateWrapper>
           )
         )}
         <Controls />

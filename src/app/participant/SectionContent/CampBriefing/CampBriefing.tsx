@@ -1,6 +1,7 @@
 import { useLanguageModeContext } from "@/contexts/LanguageModeContext";
 import { CampBriefingTextPL, CampBriefingTextEN } from "../textContent";
 import TextWithAnchor from "@/components/TextWithAnchor/TextWithAnchor";
+import AnimateWrapper from "@/animations/AnimateWrapper";
 
 const CampBriefing = () => {
   const { languageMode } = useLanguageModeContext();
@@ -8,18 +9,26 @@ const CampBriefing = () => {
     languageMode === "polish" ? CampBriefingTextPL : CampBriefingTextEN;
   return (
     <>
-      <h2 className="text-3xl text-secondary-color text-center uppercase">
-        {usedLanguageText.date}
-      </h2>
-      <h3 className="text-2xl text-center">
-        <TextWithAnchor
-          text={usedLanguageText.heading}
-          href={usedLanguageText.href}
-          linkStart={usedLanguageText.linkStart}
-          linkEnd={usedLanguageText.linkEnd}
-        />
-      </h3>
-      <p className="text-left text-xl xl:text-center">{usedLanguageText.content}</p>
+      <AnimateWrapper duration={1} delay={0.1} type="FadeInTop">
+        <h2 className="text-3xl text-secondary-color text-center uppercase">
+          {usedLanguageText.date}
+        </h2>
+      </AnimateWrapper>
+      <AnimateWrapper duration={1} delay={0.2} type="FadeInTop">
+        <h3 className="text-2xl text-center">
+          <TextWithAnchor
+            text={usedLanguageText.heading}
+            href={usedLanguageText.href}
+            linkStart={usedLanguageText.linkStart}
+            linkEnd={usedLanguageText.linkEnd}
+          />
+        </h3>
+      </AnimateWrapper>
+      <AnimateWrapper duration={1} delay={0.3} type="FadeInTop">
+        <p className="text-left text-xl xl:text-center">
+          {usedLanguageText.content}
+        </p>
+      </AnimateWrapper>
     </>
   );
 };

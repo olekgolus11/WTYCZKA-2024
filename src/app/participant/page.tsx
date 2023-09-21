@@ -13,8 +13,7 @@ import Consequences from "./SectionContent/Consequences/Consequences";
 export default function Participant() {
   return (
     <main className="flex flex-col">
-      <SectionHeaders
-      />
+      <SectionHeaders />
       <SectionContent>
         <SectionContentElement elementType="form">
           <RegistrationForm />

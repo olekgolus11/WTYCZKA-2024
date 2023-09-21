@@ -1,13 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { set } from "react-hook-form";
 
 export default function useDaysLeft(startDate: string) {
   const ONE_MINUTE = 60000;
   const ONE_HOUR = 3600000;
   const ONE_DAY = 86400000;
-  const [daysLeft, setDaysLeft] = useState(0);
+  const [daysLeft, setDaysLeft] = useState(1);
 
   useEffect(() => {
     const currentDate = new Date();

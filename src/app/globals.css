@@ -70,20 +70,18 @@ body {
 }
 
 html {
-  --nav-height: 82px;
+  --nav-height: 84px;
   --section-headers-height: 56px;
   scroll-padding-top: var(--nav-height);
   scroll-behavior: smooth;
 }
 
 main {
-  height: calc(100svh - var(--nav-height) - 2px);
+  height: calc(100svh - var(--nav-height));
 }
 
 .section-content-wrapper {
-  height: calc(
-    100svh - var(--nav-height) - var(--section-headers-height) - 2px
-  );
+  height: calc(100svh - var(--nav-height) - var(--section-headers-height));
 }
 
 @media (pointer: coarse) {
