@@ -18,6 +18,8 @@ const SectionHeaders = () => {
             delay={0.1 * (index + 1)}
             type="FadeInLeft"
             key={index}
+            className="overflow-visible"
+            once={true}
           >
             <span
               className={`hover:text-secondary-color cursor-pointer block py-4 whitespace-nowrap h-full ${
