@@ -21,7 +21,7 @@ const ParticipantEssentials = () => {
           {usedLanguageText.heading}
         </h2>
       </AnimateWrapper>
-      <ul className="list-none text-xl">
+      <ul className="list-none text-xl leading-relaxed">
         {usedLanguageText.bulletPoints.map((bulletPoint, index) => (
           <AnimateWrapper
             duration={1}

@@ -17,7 +17,7 @@ export default function Regulations() {
   }, []);
 
   return (
-    <main className="text-center flex items-center justify-center px-4 py-6 text-primary-color sm:px-10 xl:px-32">
+    <main className="text-center flex items-center justify-center px-4 py-6 text-primary-color sm:px-10 xl:px-32 leading-relaxed">
       <AnimateWrapper duration={1} delay={0.3} type="FadeInBottom">
         <Typography variant="h5">
           <TextWithAnchor

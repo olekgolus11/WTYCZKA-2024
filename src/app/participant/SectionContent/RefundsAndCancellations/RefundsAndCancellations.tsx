@@ -13,7 +13,7 @@ const RefundsAndCancellations = () => {
       ? RefundsAndCancellationsTextPL
       : RefundsAndCancellationsTextEN;
   return (
-    <section className="text-xl text-left break-words tracking-wide w-full xl:text-center">
+    <section className="text-xl text-left break-words tracking-wide w-full xl:text-center leading-relaxed">
       <AnimateWrapper duration={1} delay={0.1} type="FadeInTop">
         <TextWithCopyPattern
           text={usedLanguageText.content}

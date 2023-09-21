@@ -10,12 +10,12 @@ const CampBriefing = () => {
   return (
     <>
       <AnimateWrapper duration={1} delay={0.1} type="FadeInTop">
-        <h2 className="text-3xl text-secondary-color text-center uppercase">
+        <h2 className="text-3xl text-secondary-color text-center uppercase leading-relaxed">
           {usedLanguageText.date}
         </h2>
       </AnimateWrapper>
       <AnimateWrapper duration={1} delay={0.2} type="FadeInTop">
-        <h3 className="text-2xl text-center">
+        <h3 className="text-2xl text-center leading-relaxed">
           <TextWithAnchor
             text={usedLanguageText.heading}
             href={usedLanguageText.href}
@@ -25,7 +25,7 @@ const CampBriefing = () => {
         </h3>
       </AnimateWrapper>
       <AnimateWrapper duration={1} delay={0.3} type="FadeInTop">
-        <p className="text-left text-xl xl:text-center">
+        <p className="text-left text-xl xl:text-center leading-relaxed">
           {usedLanguageText.content}
         </p>
       </AnimateWrapper>
