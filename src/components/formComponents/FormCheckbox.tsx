@@ -16,7 +16,7 @@ const FormCheckbox = ({ name, label }: { name: string; label: string }) => {
             sx={{ marginRight: "5px" }}
             control={
               <div>
-                <Checkbox onChange={onChange} checked={value} />
+                <Checkbox onChange={onChange} checked={value} id={`checkbox-${label}`} />
               </div>
             }
             label={label}

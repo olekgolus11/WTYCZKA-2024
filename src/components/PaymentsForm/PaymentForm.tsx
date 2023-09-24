@@ -9,8 +9,6 @@ import {
 import { FormProvider, useForm } from "react-hook-form";
 import FormField from "../formComponents/FormField";
 import UploadFileIcon from "@mui/icons-material/UploadFile";
-import useDaysLeft from "@/hooks/useDaysLeft";
-import { PAYMENT_DATE } from "@/constants/eventDates";
 import { addDoc, collection, getDocs } from "firebase/firestore";
 import { db } from "@/config/firebase";
 import { paymentType } from "./paymentType";
@@ -18,12 +16,13 @@ import { storage } from "@/config/firebase";
 import { ref, uploadBytes } from "firebase/storage";
 import { useEffect, useState } from "react";
 import Toast from "../Toast/Toast";
+import AnimateWrapper from "@/animations/AnimateWrapper";
+import { PaymentDetailsTextEN, PaymentDetailsTextPL } from "./paymentDetails";
 
 const PaymentsForm = () => {
   const { languageMode } = useLanguageModeContext();
   const methods = useForm<paymentType>({ mode: "onBlur" });
   const paymentCollectionRef = collection(db, "payment");
-  const daysLeft = useDaysLeft(PAYMENT_DATE);
   const [open, setOpen] = useState(false);
   const [isSubmitError, setIsSubmitError] = useState(false);
   const [isPaymentOpen, setIsPaymentOpen] = useState(true);
@@ -75,19 +74,31 @@ const PaymentsForm = () => {
     throw new Error("Error while fetching payment state");
   } else if (isLoading) {
     return (
-      <div className="flex flex-col items-center justify-center">
+      <AnimateWrapper
+        duration={1}
+        delay={0.1}
+        type="FadeInBottom"
+        once={true}
+        className="flex flex-col items-center justify-center h-full"
+      >
         <CircularProgress color="primary" />
-      </div>
+      </AnimateWrapper>
     );
-  } else if (!isPaymentOpen || daysLeft <= 0) {
+  } else if (!isPaymentOpen) {
     return (
-      <div className="flex justify-center items-center h-full text-center text-primary-color px-4 py-6 sm:px-10 xl:px-32">
+      <AnimateWrapper
+        duration={1}
+        delay={0.1}
+        type="FadeInBottom"
+        once={true}
+        className="flex justify-center items-center h-full text-center text-primary-color px-4 py-6 sm:px-10 xl:px-32"
+      >
         <Typography variant="h5">
           {languageMode == "english"
             ? "Currently we are not accepting payments!"
             : "Obecnie nie przyjmujemy wpłat!"}
         </Typography>
-      </div>
+      </AnimateWrapper>
     );
   }
 
@@ -97,18 +108,50 @@ const PaymentsForm = () => {
         onSubmit={methods.handleSubmit(onSubmit)}
         className="flex flex-col gap-1 justify-center items-center"
       >
-        <Typography variant="h5" className=" text-center">
-          {languageMode == "english"
-            ? "Number of account for payment: xx xxxx xxxx xxxx xxxx"
-            : "Numer konta do płatności: xx xxxx xxxx xxxx xxxx"}
-        </Typography>
-        <Typography variant="h5" className=" text-center">
-          {languageMode == "english"
-            ? "Title of the transfer: WTYCZKA2023-FirstNameLastName  Amount: 450 zł"
-            : "Tytuł przelewu: WTYCZKA2023-ImieNazwisko  Kwota: 450 zł "}
-        </Typography>
-        <div className="grid grid-cols-1 gap-1 justify-center items-center  md:min-w-[30rem]">
-          <div className="xl:flex-row gap-1 flex flex-col">
+        <AnimateWrapper
+          duration={1}
+          delay={0.1}
+          type="FadeInBottom"
+          once={true}
+        >
+          <Typography variant="h5" className="text-center pb-2">
+            {languageMode == "english"
+              ? PaymentDetailsTextEN.accountNumber
+              : PaymentDetailsTextPL.accountNumber}
+          </Typography>
+        </AnimateWrapper>
+        <AnimateWrapper
+          duration={1}
+          delay={0.2}
+          type="FadeInBottom"
+          once={true}
+        >
+          <Typography variant="h5" className="text-center pb-2">
+            {languageMode == "english"
+              ? PaymentDetailsTextEN.title
+              : PaymentDetailsTextPL.title}
+          </Typography>
+        </AnimateWrapper>
+        <AnimateWrapper
+          duration={1}
+          delay={0.3}
+          type="FadeInBottom"
+          once={true}
+        >
+          <Typography variant="h5" className="text-center">
+            {languageMode == "english"
+              ? PaymentDetailsTextEN.amount
+              : PaymentDetailsTextPL.amount}
+          </Typography>
+        </AnimateWrapper>
+        <div className="grid grid-cols-1 gap-1 justify-center items-center md:min-w-[30rem]">
+          <AnimateWrapper
+            duration={1}
+            delay={0.4}
+            type="FadeInBottom"
+            once={true}
+            className="xl:flex-row gap-1 flex flex-col"
+          >
             <FormField
               label={languageMode == "english" ? "First name" : "Imię"}
               isRequired={false}
@@ -123,25 +166,45 @@ const PaymentsForm = () => {
               maxLength={30}
               registerName="lastName"
             />
-          </div>
-          <FormField
-            label={
-              languageMode == "english" ? "E-mail address" : "Adres e-mail"
-            }
-            isRequired={true}
-            minLength={3}
-            maxLength={30}
-            registerName="email"
-            fieldType="mail"
-          />
-          <FormField
-            label={"PESEL"}
-            isRequired={true}
-            minLength={11}
-            maxLength={11}
-            registerName="pesel"
-          />
-          <div className="flex flex-col w-auto m-4 gap-1">
+          </AnimateWrapper>
+          <AnimateWrapper
+            duration={1}
+            delay={0.5}
+            type="FadeInBottom"
+            once={true}
+          >
+            <FormField
+              label={
+                languageMode == "english" ? "E-mail address" : "Adres e-mail"
+              }
+              isRequired={true}
+              minLength={3}
+              maxLength={30}
+              registerName="email"
+              fieldType="mail"
+            />
+          </AnimateWrapper>
+          <AnimateWrapper
+            duration={1}
+            delay={0.6}
+            type="FadeInBottom"
+            once={true}
+          >
+            <FormField
+              label={"PESEL"}
+              isRequired={true}
+              minLength={11}
+              maxLength={11}
+              registerName="pesel"
+            />
+          </AnimateWrapper>
+          <AnimateWrapper
+            duration={1}
+            delay={0.7}
+            type="FadeInBottom"
+            once={true}
+            className="flex flex-col w-auto m-4 gap-1"
+          >
             <Typography variant="subtitle1">
               {languageMode == "english"
                 ? "Confirmation of the payment"
@@ -158,15 +221,21 @@ const PaymentsForm = () => {
               }}
               {...methods.register("file")}
             />
-          </div>
+          </AnimateWrapper>
         </div>
-        <div className="flex gap-4 py-8 justify-center items-center">
+        <AnimateWrapper
+          duration={1}
+          delay={0.8}
+          type="FadeInBottom"
+          once={true}
+          className="flex gap-4 py-8 justify-center items-center"
+        >
           <button type="submit" className="button-round button-filled">
             {languageMode == "english"
               ? "Send payment confirmation"
               : "Wyślij potwierdzenie płatności"}
           </button>
-        </div>
+        </AnimateWrapper>
       </form>
       <Toast
         setOpen={setOpen}

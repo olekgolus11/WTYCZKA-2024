@@ -1,3 +1,4 @@
+"use client";
 import { useLanguageModeContext } from "@/contexts/LanguageModeContext";
 import useScreenWidth from "@/hooks/useScreenWidth";
 import { Alert, Snackbar } from "@mui/material";

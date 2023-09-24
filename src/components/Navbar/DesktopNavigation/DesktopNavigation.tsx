@@ -1,3 +1,4 @@
+"use client";
 import { ArrowRight } from "lucide-react";
 import Controls from "../Controls/Controls";
 import { navLinksPL, navLinksEN, PARTICIPANT_PAGE } from "../NavLinks";

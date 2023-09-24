@@ -1,3 +1,4 @@
+"use client";
 import { FormProvider, useForm } from "react-hook-form";
 import { useLanguageModeContext } from "@/contexts/LanguageModeContext";
 import { CircularProgress, Typography } from "@mui/material";
@@ -9,6 +10,7 @@ import Toast from "../Toast/Toast";
 import ParticipantInfoSection from "./ParticipantInfoSection";
 import StudentDetailsSection from "./StudentDetailsSection";
 import AdditionalQuestionsSection from "./AdditionalQuestionsSection";
+import AnimateWrapper from "@/animations/AnimateWrapper";
 
 const RegistrationForm = () => {
   const methods = useForm<registrationType>({
@@ -62,13 +64,25 @@ const RegistrationForm = () => {
     throw new Error("Server is offline");
   } else if (isLoading) {
     return (
-      <div className="flex flex-col items-center justify-center">
+      <AnimateWrapper
+        duration={1}
+        delay={0.1}
+        type="FadeInBottom"
+        once={true}
+        className="flex flex-col items-center justify-center h-full"
+      >
         <CircularProgress color="primary" />
-      </div>
+      </AnimateWrapper>
     );
   } else if (!isRegistrationOpen) {
     return (
-      <div className="flex flex-col justify-center items-center h-full text-center px-4 py-6 sm:px-10 xl:px-32">
+      <AnimateWrapper
+        duration={1}
+        delay={0.1}
+        type="FadeInBottom"
+        once={true}
+        className="flex flex-col justify-center items-center h-full text-center px-4 py-6 sm:px-10 xl:px-32"
+      >
         <Typography
           variant="h3"
           className=" text-center pb-4 text-primary-color"
@@ -82,26 +96,60 @@ const RegistrationForm = () => {
             ? "Try again later"
             : "Spróbuj ponownie później"}
         </Typography>
-      </div>
+      </AnimateWrapper>
     );
   }
 
   return (
     <FormProvider {...methods}>
       <form onSubmit={methods.handleSubmit(onSubmit)}>
-        <Typography variant="h3" className=" text-center pb-4">
-          {languageMode == "english"
-            ? "Sign up for the trip"
-            : "Zapisz się na wyjazd"}
-        </Typography>
-        <ParticipantInfoSection />
-        <StudentDetailsSection />
-        <AdditionalQuestionsSection />
-        <div className="flex gap-4 items-center justify-center m-8">
-          <button type="submit" className="button-round button-filled ">
-            Submit
+        <AnimateWrapper
+          duration={1}
+          delay={0.1}
+          type="FadeInBottom"
+          once={true}
+        >
+          <Typography variant="h3" className=" text-center pb-4">
+            {languageMode == "english"
+              ? "Sign up for the trip"
+              : "Zapisz się na wyjazd"}
+          </Typography>
+        </AnimateWrapper>
+        <AnimateWrapper
+          duration={1}
+          delay={0.2}
+          type="FadeInBottom"
+          once={true}
+        >
+          <ParticipantInfoSection />
+        </AnimateWrapper>
+        <AnimateWrapper
+          duration={1}
+          delay={0.3}
+          type="FadeInBottom"
+          once={true}
+        >
+          <StudentDetailsSection />
+        </AnimateWrapper>
+        <AnimateWrapper
+          duration={1}
+          delay={0.4}
+          type="FadeInBottom"
+          once={true}
+        >
+          <AdditionalQuestionsSection />
+        </AnimateWrapper>
+        <AnimateWrapper
+          duration={1}
+          delay={0.5}
+          type="FadeInBottom"
+          once={true}
+          className="flex gap-4 items-center justify-center m-8"
+        >
+          <button type="submit" className="button-round button-filled max-sm:px-4">
+            {languageMode == "english" ? "Submit" : "Wyślij zgłoszenie"}
           </button>
-        </div>
+        </AnimateWrapper>
       </form>
       <Toast setOpen={setOpen} open={open} error={isSubmitError} />
     </FormProvider>

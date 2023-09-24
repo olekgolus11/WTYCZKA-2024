@@ -1,3 +1,4 @@
+"use client";
 import { useLanguageModeContext } from "@/contexts/LanguageModeContext";
 import Typography from "@mui/material/Typography";
 import FormSelect from "../formComponents/FormSelect";

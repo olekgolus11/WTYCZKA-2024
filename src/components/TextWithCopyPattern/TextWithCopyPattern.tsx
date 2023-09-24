@@ -1,3 +1,4 @@
+"use client";
 import { useLanguageModeContext } from "@/contexts/LanguageModeContext";
 import copyToClipboard from "@/functions/copyToClipboard";
 import removeBorderPunctuation from "@/functions/removeBorderPunctuation";

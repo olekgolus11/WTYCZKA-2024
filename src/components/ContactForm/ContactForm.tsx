@@ -98,7 +98,7 @@ const ContactForm = () => {
                 label={languageMode == "english" ? "Message" : "Wiadomość"}
                 isRequired={true}
                 minLength={3}
-                maxLength={80}
+                maxLength={300}
                 registerName="message"
                 multiline={true}
               />

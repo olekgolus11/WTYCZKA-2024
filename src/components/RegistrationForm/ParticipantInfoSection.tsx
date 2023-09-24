@@ -1,3 +1,4 @@
+"use client";
 import { useLanguageModeContext } from "@/contexts/LanguageModeContext";
 import FormField from "../formComponents/FormField";
 import Typography from "@mui/material/Typography";
@@ -6,7 +7,6 @@ import { SexOptions } from "./selectOptions";
 
 const ParticipantInfoSection = () => {
   const { languageMode } = useLanguageModeContext();
-
   return (
     <>
       <Typography variant="h6" className="text-primary-color p-4">

@@ -1,3 +1,4 @@
+"use client";
 import { useLanguageModeContext } from "@/contexts/LanguageModeContext";
 import { TextField, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
@@ -35,7 +36,7 @@ const FormField = ({
     } else {
       setPattern(/.*/g);
     }
-  }, []);
+  }, [fieldType]);
 
   return (
     <div className="flex flex-col w-auto m-4 gap-1">
@@ -46,7 +47,7 @@ const FormField = ({
         type={fieldType == "mail" ? "email" : "text"}
         helperText={errors[registerName]?.message?.toString()}
         error={!!errors[registerName]}
-        id="outlined-basic"
+        id={`outlined-basic-${label}`}
         variant="outlined"
         fullWidth
         multiline={multiline}

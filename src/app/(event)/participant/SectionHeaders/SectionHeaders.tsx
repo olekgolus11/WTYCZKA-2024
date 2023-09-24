@@ -1,3 +1,4 @@
+"use client";
 import { useLanguageModeContext } from "@/contexts/LanguageModeContext";
 import { headersEN, headersPL } from "./headers";
 import { useSelectedSectionContext } from "@/contexts/SelectedSectionContext";

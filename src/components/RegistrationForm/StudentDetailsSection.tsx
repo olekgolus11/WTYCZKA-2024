@@ -1,3 +1,4 @@
+"use client";
 import Typography from "@mui/material/Typography";
 import FormSelect from "../formComponents/FormSelect";
 import FormField from "../formComponents/FormField";

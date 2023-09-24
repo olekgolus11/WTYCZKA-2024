@@ -1,3 +1,4 @@
+"use client";
 import { useLanguageModeContext } from "@/contexts/LanguageModeContext";
 import { CampBriefingTextPL, CampBriefingTextEN } from "../textContent";
 import TextWithAnchor from "@/components/TextWithAnchor/TextWithAnchor";
@@ -40,7 +41,7 @@ const CampBriefing = () => {
         type="FadeInTop"
         className="overflow-visible"
       >
-        <p className="text-left text-xl xl:text-center leading-relaxed">
+        <p className="text-left text-xl xl:text-center leading-relaxed max-xl:px-2">
           {usedLanguageText.content}
         </p>
       </AnimateWrapper>

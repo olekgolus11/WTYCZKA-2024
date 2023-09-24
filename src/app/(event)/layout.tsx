@@ -6,9 +6,9 @@ export default function MainPageLayout({
   children: React.ReactNode;
 }) {
   return (
-    <section>
+    <>
       <Navbar />
       {children}
-    </section>
+    </>
   );
 }

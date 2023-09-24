@@ -1,3 +1,4 @@
+"use client";
 import NavIcon from "@/customIcons/NavIcon/NavIcon";
 import Link from "next/link";
 import Controls from "../Controls/Controls";

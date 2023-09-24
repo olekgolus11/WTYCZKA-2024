@@ -1,3 +1,4 @@
+"use client";
 import AnimateWrapper from "@/animations/AnimateWrapper";
 import PL_IMG from "../../../public/languageIcons/poland.png";
 import EN_IMG from "../../../public/languageIcons/united-kingdom.png";

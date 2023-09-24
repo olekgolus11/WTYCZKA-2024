@@ -4,15 +4,15 @@
 
 @layer components {
   .date-label {
-    @apply text-3xl sm:text-small-label;
+    @apply text-2xl sm:text-small-label;
   }
 
   .date-counter {
-    @apply text-[9rem] leading-tight tracking-wider;
+    @apply text-8xl leading-tight tracking-wider sm:text-[9rem];
   }
 
   .counter-label {
-    @apply font-medium text-3xl sm:text-small-label;
+    @apply font-medium text-2xl sm:text-small-label;
   }
 
   .applyBasicButtonStyles {

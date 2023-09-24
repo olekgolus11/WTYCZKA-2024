@@ -18,7 +18,7 @@ export const FacultyOptions = {
     "BAIŚ",
     "FTIMS",
     "Organizacji i Zarządzania",
-    "IPOS",
+    "IPOŚ",
   ],
   EN: [
     "EEIA",
@@ -29,7 +29,7 @@ export const FacultyOptions = {
     "BAIŚ",
     "FTIMS",
     "Organization and Management",
-    "IPOS",
+    "IPOŚ",
   ],
 };
 

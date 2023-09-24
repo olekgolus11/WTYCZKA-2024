@@ -14,7 +14,7 @@ export async function POST(request: Request) {
       reply_to: email,
       subject: `Pytanie od użytkownika ${name}`,
       text: "Wyjazd wtyczka",
-      react: EmailTemplate({ message: message }),
+      react: EmailTemplate({ name: name, message: message, email: email }),
     });
 
     return NextResponse.json(data);
