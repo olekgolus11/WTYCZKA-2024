@@ -32,7 +32,6 @@ const RegistrationForm = () => {
         const forms = data.docs.map((doc) => ({
           ...doc.data(),
         }));
-        console.log(forms);
         const registration = forms.filter(
           (state) => state.form === "registration"
         );
@@ -146,7 +145,10 @@ const RegistrationForm = () => {
           once={true}
           className="flex gap-4 items-center justify-center m-8"
         >
-          <button type="submit" className="button-round button-filled max-sm:px-4">
+          <button
+            type="submit"
+            className="button-round button-filled max-sm:px-4"
+          >
             {languageMode == "english" ? "Submit" : "Wyślij zgłoszenie"}
           </button>
         </AnimateWrapper>
