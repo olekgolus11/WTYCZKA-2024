@@ -1,9 +1,7 @@
-import { useLanguageModeContext } from "@/contexts/LanguageModeContext";
 import { Checkbox, FormControlLabel, Typography } from "@mui/material";
 import { Controller, useFormContext } from "react-hook-form";
 
 const FormCheckbox = ({ name, label }: { name: string; label: string }) => {
-  const { languageMode } = useLanguageModeContext();
   const { control } = useFormContext();
 
   return (
@@ -12,13 +10,13 @@ const FormCheckbox = ({ name, label }: { name: string; label: string }) => {
         control={control}
         name={name}
         rules={{ required: true }}
-        render={({ field }) => (
+        render={({ field: { onChange, value } }) => (
           <FormControlLabel
             value="end"
             sx={{ marginRight: "5px" }}
             control={
               <div>
-                <Checkbox {...field} />
+                <Checkbox onChange={onChange} checked={value} />
               </div>
             }
             label={label}

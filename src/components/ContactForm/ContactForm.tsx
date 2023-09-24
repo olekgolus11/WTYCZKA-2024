@@ -1,10 +1,12 @@
 "use client";
 import { useLanguageModeContext } from "@/contexts/LanguageModeContext";
 import { Typography } from "@mui/material";
-import FormField from "../RegistrationForm/FormField";
 import { FormProvider, useForm } from "react-hook-form";
 import { facebookLink } from "@/services/socialLinks";
 import AnimateWrapper from "@/animations/AnimateWrapper";
+import { useState } from "react";
+import FormField from "../formComponents/FormField";
+import Toast from "../Toast/Toast";
 
 type FormValues = {
   name: string;
@@ -15,9 +17,25 @@ type FormValues = {
 const ContactForm = () => {
   const { languageMode } = useLanguageModeContext();
   const methods = useForm<FormValues>({ mode: "onBlur" });
+  const [open, setOpen] = useState(false);
+  const [isSendError, setIsSendError] = useState(false);
 
-  const onSubmit = (data: any) => {
-    console.log(data);
+  const onSubmit = async (data: FormValues) => {
+    const response = await fetch("/api/send", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+
+    if (response.status == 200) {
+      methods.reset();
+      setIsSendError(false);
+    } else {
+      setIsSendError(true);
+    }
+    setOpen(true);
   };
 
   return (
@@ -117,6 +135,7 @@ const ContactForm = () => {
             </AnimateWrapper>
           </div>
         </form>
+        <Toast open={open} setOpen={setOpen} error={isSendError} />
       </FormProvider>
     </main>
   );

@@ -17,21 +17,25 @@
     "@types/react": "18.2.21",
     "@types/react-dom": "18.2.7",
     "autoprefixer": "10.4.15",
+    "encoding": "^0.1.13",
     "eslint": "8.48.0",
     "eslint-config-next": "13.4.19",
+    "firebase": "^10.4.0",
     "framer-motion": "^10.16.4",
     "lucide-react": "^0.274.0",
     "next": "13.4.19",
+    "node-fetch": "^3.3.2",
     "postcss": "8.4.29",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-hook-form": "^7.46.1",
+    "resend": "^1.1.0",
     "typescript": "5.2.2"
   },
   "devDependencies": {
+    "@hookform/devtools": "^4.3.1",
     "prettier": "^3.0.3",
     "prettier-plugin-tailwindcss": "^0.5.4",
-    "@hookform/devtools": "^4.3.1",
     "tailwindcss": "^3.3.3"
   }
 }

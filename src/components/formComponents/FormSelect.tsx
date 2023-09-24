@@ -1,4 +1,3 @@
-import { useLanguageModeContext } from "@/contexts/LanguageModeContext";
 import { MenuItem, Select, TextField, Typography } from "@mui/material";
 import { Controller, useFormContext } from "react-hook-form";
 
@@ -15,7 +14,6 @@ const FormSelect = ({
 }) => {
   const { control, formState } = useFormContext();
   const { errors } = formState;
-  const { languageMode } = useLanguageModeContext();
 
   return (
     <div className="flex flex-col w-auto m-4 gap-1">

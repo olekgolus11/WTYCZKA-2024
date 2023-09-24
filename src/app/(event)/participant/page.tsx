@@ -10,6 +10,7 @@ import RegistrationForm from "@/components/RegistrationForm/RegistrationForm";
 import PaymentsForm from "@/components/PaymentsForm/PaymentForm";
 import Consequences from "./SectionContent/Consequences/Consequences";
 
+
 export default function Participant() {
   return (
     <main className="flex flex-col">

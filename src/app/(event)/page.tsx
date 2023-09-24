@@ -1,7 +1,7 @@
 "use client";
 import Clock from "@/components/Clock/Clock";
 import Image from "next/image";
-import wtyczkaLogo from "../../public/wtyczkaLogo/wtyczka-logo.png";
+import wtyczkaLogo from "../../../public/wtyczkaLogo/wtyczka-logo.png";
 import { useLanguageModeContext } from "@/contexts/LanguageModeContext";
 import Link from "next/link";
 import { checkoutMore } from "@/services/socialLinks";
