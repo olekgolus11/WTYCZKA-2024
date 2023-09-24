@@ -93,7 +93,7 @@ const PaymentsForm = () => {
         once={true}
         className="flex justify-center items-center h-full text-center text-primary-color px-4 py-6 sm:px-10 xl:px-32"
       >
-        <Typography variant="h5">
+        <Typography variant="h4">
           {languageMode == "english"
             ? "Currently we are not accepting payments!"
             : "Obecnie nie przyjmujemy wpłat!"}

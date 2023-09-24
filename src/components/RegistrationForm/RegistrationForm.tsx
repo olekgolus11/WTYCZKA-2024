@@ -84,14 +84,14 @@ const RegistrationForm = () => {
         className="flex flex-col justify-center items-center h-full text-center px-4 py-6 sm:px-10 xl:px-32"
       >
         <Typography
-          variant="h3"
+          variant="h4"
           className=" text-center pb-4 text-primary-color"
         >
           {languageMode == "english"
             ? "Registration is closed"
             : "Zapisy są zamknięte"}
         </Typography>
-        <Typography variant="h6" className="text-primary-color p-4">
+        <Typography variant="h5" className="text-primary-color p-4">
           {languageMode == "english"
             ? "Try again later"
             : "Spróbuj ponownie później"}
