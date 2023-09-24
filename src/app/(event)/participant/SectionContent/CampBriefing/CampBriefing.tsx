@@ -41,9 +41,14 @@ const CampBriefing = () => {
         type="FadeInTop"
         className="overflow-visible"
       >
-        <p className="text-left text-xl xl:text-center leading-relaxed max-xl:px-2">
-          {usedLanguageText.content}
-        </p>
+        {usedLanguageText.content.map((paragraph, index) => (
+          <p
+            className="text-left text-xl xl:text-center leading-relaxed max-xl:px-2 py-2"
+            key={index}
+          >
+            {paragraph}
+          </p>
+        ))}
       </AnimateWrapper>
     </>
   );

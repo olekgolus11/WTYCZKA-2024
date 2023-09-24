@@ -42,7 +42,7 @@ const TextWithCopyPattern = ({
         </span>
       ))}
       <span
-        className={`absolute bg-active-color rounded-lg p-2 text-lg transition-all duration-500 ease-in-out shadow-xl shadow-black left-4 ${
+        className={`absolute bg-secondary-color rounded-lg p-2 text-lg transition-all duration-500 ease-in-out shadow-xl shadow-black left-4 ${
           isPopupVisible ? "bottom-4" : "-bottom-16"
         }`}
         style={{ transform: `translateX(${slideIndex * screenWidth}px)` }}

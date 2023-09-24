@@ -16,11 +16,11 @@ const RefundsAndCancellations = () => {
   return (
     <section className="text-xl text-left break-words tracking-wide w-full xl:text-center leading-relaxed max-xl:px-2">
       <AnimateWrapper duration={1} delay={0.1} type="FadeInTop">
-        <TextWithCopyPattern
-          text={usedLanguageText.content}
-          pattern="@"
-          slideIndex={5}
-        />
+        {usedLanguageText.content.map((paragraph, index) => (
+          <p key={index} className="py-2">
+            <TextWithCopyPattern text={paragraph} pattern="@" slideIndex={4} />
+          </p>
+        ))}
       </AnimateWrapper>
     </section>
   );
