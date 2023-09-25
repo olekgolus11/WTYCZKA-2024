@@ -14,6 +14,7 @@ export type registrationType = {
   session: string;
   diet: string;
   shirtSize: string;
+  footSize: string;
   source: string;
   invoice: string;
   statuteAccept: boolean;
@@ -37,6 +38,7 @@ export const registrationTypeInitial: registrationType = {
   session: "",
   diet: "",
   shirtSize: "",
+  footSize: "",
   source: "",
   invoice: "",
   statuteAccept: false,

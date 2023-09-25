@@ -27,7 +27,7 @@ export default function Home() {
           <h2 className="capitalize font-semibold tracking-wide text-xl text-center">
             {languageMode === "english"
               ? "training and integration trip"
-              : "wyjazd integracyjno-szkoleniowy"}
+              : "wyjazd szkoleniowo-integracyjny"}
           </h2>
         </AnimateWrapper>
         <div className="flex flex-wrap gap-4 items-center justify-center">

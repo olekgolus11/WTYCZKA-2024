@@ -10,13 +10,17 @@ const FormCheckbox = ({ name, label }: { name: string; label: string }) => {
         control={control}
         name={name}
         rules={{ required: true }}
-        render={({ field: { onChange, value } }) => (
+        render={({ field: { onChange, value, onBlur } }) => (
           <FormControlLabel
             value="end"
             sx={{ marginRight: "5px" }}
             control={
               <div>
-                <Checkbox onChange={onChange} checked={value} id={`checkbox-${label}`} />
+                <Checkbox
+                  onChange={onChange}
+                  checked={value}
+                  id={`checkbox-${label}`}
+                />
               </div>
             }
             label={label}

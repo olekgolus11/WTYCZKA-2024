@@ -4,8 +4,7 @@ export const SexOptions = {
 };
 
 export const DegreeOptions = {
-  PL: ["inżynier", "magister", "doktor"],
-  EN: ["engineer", "master", "doctor"],
+  PL: ["I", "II", "III"],
 };
 
 export const FacultyOptions = {
@@ -13,23 +12,23 @@ export const FacultyOptions = {
     "EEIA",
     "Mechaniczny",
     "Chemiczny",
-    "Materiałów i Wzornictwa",
+    "TMiWT",
     "BINOŻ",
     "BAIŚ",
     "FTIMS",
-    "Organizacji i Zarządzania",
-    "IPOŚ",
+    "OiZ",
+    "IPOS",
   ],
   EN: [
     "EEIA",
     "Mechanical",
     "Chemical",
-    "Materials and Design",
+    "TMiWT",
     "BINOŻ",
     "BAIŚ",
     "FTIMS",
-    "Organization and Management",
-    "IPOŚ",
+    "OiZ",
+    "IPOS",
   ],
 };
 
@@ -39,7 +38,7 @@ export const DietOptions = {
 };
 
 export const ShirtSizeOptions = {
-  PL: ["S", "M", "L", "XL", "XXL"],
+  PL: ["XS", "S", "M", "L", "XL", "XXL"],
 };
 
 export const SourceOptions = {
@@ -65,5 +64,6 @@ export const SessionOptions = {
 
 export const StatuteConsentLabel = "Akceptuję regulamin";
 export const PersonalConsentLabel =
-  "Wyrażam zgodę na przetwarzanie danych osobowych";
-export const AdditionalConsentLabel = "Wyrażam zgodę na";
+  'Wyrażam zgodę na przetwarzanie moich danych osobowych przez Politechnikę Łódzką, adres siedziby ul. Żeromskiego 116m 90-924 Łódź, jako administratora, w celu zorganizowania i przeprowadzenia wyjazdu szkoleniowo-integracyjnego "Wtyczka 2023" (dalej: Wyjazdu), w tym kolejnej jego edycji w przyszłości. Dane w zakresie imię i nazwisko, adres e-mail, numer PESEL, adres i numer telefonu uczestników zawarte w Formularzu Rejestracyjnym przetwarzać będzie Organizator Wyjazdu - Wydziałowa Rada Samorządu Wydziału Elektrotechniki, Elektroniki, Informatyki i Automatyki Politechniki Łódzkiej. Numer PESEL oraz adres zostaną przekazane ubezpieczycielowi, celem zapewnienia ubezpieczenia NNW dla uczestników Wyjazdu. Administrator informuje, że niniejsza zgoda może być wycofana w każdym czasie poprzez przesałanie oświadczenia o wycofaniu zgody na adres: rbi@adm.p.lodz.pl, wycofanie zgody nie wpływa jednak na zgodność z prawem przetwarzania, którego dokonano na podstawie tej zgody przed jej wycofaniem. Także zgadzam się na otrzymywanie wiadomości tekstowych dotyczących spraw organizacyjnych związanych z Wyjazdem na adres e-mail i numer telefonu podany w formularzu.';
+export const AdditionalConsentLabel =
+  "Zapoznałem(-am) się z klauzulą informacyjną dot. przetwarzania danych";

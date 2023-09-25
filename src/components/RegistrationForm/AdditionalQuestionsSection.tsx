@@ -12,6 +12,7 @@ import {
   PersonalConsentLabel,
   AdditionalConsentLabel,
 } from "./selectOptions";
+import FormField from "../formComponents/FormField";
 
 const AdditionalQuestionsSection = () => {
   const { languageMode } = useLanguageModeContext();
@@ -40,6 +41,15 @@ const AdditionalQuestionsSection = () => {
           }
           isRequired={true}
           options={ShirtSizeOptions.PL}
+        />
+        <FormField
+          label={
+            languageMode == "english" ? "Foot size (EU)" : "Rozmiar buta (EU)"
+          }
+          registerName="footSize"
+          isRequired={true}
+          minLength={2}
+          maxLength={4}
         />
         <FormSelect
           label={

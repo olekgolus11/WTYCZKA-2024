@@ -37,9 +37,7 @@ const StudentDetailsSection = () => {
           label={languageMode == "english" ? "Degree" : "Stopień studiów"}
           registerName="degree"
           isRequired={true}
-          options={
-            languageMode == "english" ? DegreeOptions.EN : DegreeOptions.PL
-          }
+          options={DegreeOptions.PL}
         />
         <FormSelect
           label={languageMode == "english" ? "Session" : "Semestr"}
