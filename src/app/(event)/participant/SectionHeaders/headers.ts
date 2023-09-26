@@ -5,7 +5,6 @@ export const headersPL: string[] = [
   "Odprawa obozowa",
   "Faktury VAT",
   "Zwroty i rezygnacje",
-  "Konsekwencje",
 ];
 
 export const headersEN: string[] = [
@@ -15,5 +14,4 @@ export const headersEN: string[] = [
   "Camp briefing",
   "VAT invoices",
   "Refunds and Cancellations",
-  "Consequences",
 ];
