@@ -8,8 +8,6 @@ import VatInvoices from "./SectionContent/VatInvoices/VatInvoices";
 import RefundsAndCancellations from "./SectionContent/RefundsAndCancellations/RefundsAndCancellations";
 import RegistrationForm from "@/components/RegistrationForm/RegistrationForm";
 import PaymentsForm from "@/components/PaymentsForm/PaymentForm";
-import Consequences from "./SectionContent/Consequences/Consequences";
-
 
 export default function Participant() {
   return (
@@ -33,9 +31,6 @@ export default function Participant() {
         </SectionContentElement>
         <SectionContentElement elementType="text">
           <RefundsAndCancellations />
-        </SectionContentElement>
-        <SectionContentElement elementType="text">
-          <Consequences />
         </SectionContentElement>
       </SectionContent>
     </main>
