@@ -179,7 +179,7 @@ const PaymentsForm = () => {
               }
               isRequired={true}
               minLength={3}
-              maxLength={30}
+              maxLength={40}
               registerName="email"
               fieldType="mail"
             />
