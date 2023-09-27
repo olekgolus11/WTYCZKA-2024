@@ -72,7 +72,7 @@ const ParticipantInfoSection = () => {
           registerName="city"
           isRequired={true}
           minLength={2}
-          maxLength={15}
+          maxLength={30}
         />
         <FormField
           label={
@@ -83,7 +83,7 @@ const ParticipantInfoSection = () => {
           registerName="street"
           isRequired={true}
           minLength={3}
-          maxLength={20}
+          maxLength={30}
         />
       </div>
     </>

@@ -9,7 +9,7 @@ import {
 import { FormProvider, useForm } from "react-hook-form";
 import FormField from "../formComponents/FormField";
 import UploadFileIcon from "@mui/icons-material/UploadFile";
-import { addDoc, collection, getDocs } from "firebase/firestore";
+import { Timestamp, addDoc, collection, getDocs } from "firebase/firestore";
 import { db } from "@/config/firebase";
 import { paymentType } from "./paymentType";
 import { storage } from "@/config/firebase";
@@ -55,6 +55,7 @@ const PaymentsForm = () => {
         lastName: data.lastName,
         email: data.email,
         pesel: data.pesel,
+        timeSend: Timestamp.now(),
       });
       const storageRef = ref(
         storage,
