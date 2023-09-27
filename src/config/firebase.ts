@@ -4,7 +4,7 @@ import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCAA7sQJrURa6Jzw7YpdRq-7So4QV6a9cE",
+  apiKey: process.env.FIREBASE_API_KEY,
   authDomain: "wtyczka-8022b.firebaseapp.com",
   projectId: "wtyczka-8022b",
   storageBucket: "wtyczka-8022b.appspot.com",
