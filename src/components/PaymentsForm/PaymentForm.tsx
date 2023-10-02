@@ -20,6 +20,7 @@ import AnimateWrapper from "@/animations/AnimateWrapper";
 import { PaymentDetailsTextEN, PaymentDetailsTextPL } from "./paymentDetails";
 
 const PaymentsForm = () => {
+  const MAX_PAYMENTS = 200;
   const { languageMode } = useLanguageModeContext();
   const methods = useForm<paymentType>({ mode: "onBlur" });
   const paymentCollectionRef = collection(db, "payment");
@@ -30,23 +31,27 @@ const PaymentsForm = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const setPaymentState = async () => {
-      try {
-        const data = await getDocs(collection(db, "formStates"));
-        const forms = data.docs.map((doc) => ({
-          ...doc.data(),
-        }));
-        const payment = forms.filter((state) => state.form === "payment");
-        setIsPaymentOpen(payment[0].isOpen);
-      } catch (e) {
-        setIsFetchError(true);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
     setPaymentState();
   }, []);
+
+  const setPaymentState = async () => {
+    try {
+      const data = await getDocs(collection(db, "formStates"));
+      const forms = data.docs.map((doc) => ({
+        ...doc.data(),
+      }));
+      const counterData = await getDocs(collection(db, "payment"));
+      const counter = counterData.docs.map((doc) => ({
+        ...doc.data(),
+      }));
+      const payment = forms.filter((state) => state.form === "payment");
+      setIsPaymentOpen(payment[0].isOpen && counter.length < MAX_PAYMENTS);
+    } catch (e) {
+      setIsFetchError(true);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   const onSubmit = async (data: paymentType) => {
     try {
