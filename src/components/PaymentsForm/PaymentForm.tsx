@@ -122,13 +122,25 @@ const PaymentsForm = () => {
         >
           <Typography variant="h5" className="text-center pb-2">
             {languageMode == "english"
+              ? PaymentDetailsTextEN.transferRecipient
+              : PaymentDetailsTextPL.transferRecipient}
+          </Typography>
+        </AnimateWrapper>
+        <AnimateWrapper
+          duration={1}
+          delay={0.2}
+          type="FadeInBottom"
+          once={true}
+        >
+          <Typography variant="h5" className="text-center pb-2">
+            {languageMode == "english"
               ? PaymentDetailsTextEN.accountNumber
               : PaymentDetailsTextPL.accountNumber}
           </Typography>
         </AnimateWrapper>
         <AnimateWrapper
           duration={1}
-          delay={0.2}
+          delay={0.3}
           type="FadeInBottom"
           once={true}
         >
@@ -140,7 +152,7 @@ const PaymentsForm = () => {
         </AnimateWrapper>
         <AnimateWrapper
           duration={1}
-          delay={0.3}
+          delay={0.4}
           type="FadeInBottom"
           once={true}
         >
@@ -150,10 +162,10 @@ const PaymentsForm = () => {
               : PaymentDetailsTextPL.amount}
           </Typography>
         </AnimateWrapper>
-        <div className="grid grid-cols-1 gap-1 justify-center items-center md:min-w-[30rem]">
+        <div className="grid grid-cols-1 gap-1 justify-center items-center md:min-w-[30rem] pt-4">
           <AnimateWrapper
             duration={1}
-            delay={0.4}
+            delay={0.5}
             type="FadeInBottom"
             once={true}
             className="xl:flex-row gap-1 flex flex-col"
@@ -175,7 +187,7 @@ const PaymentsForm = () => {
           </AnimateWrapper>
           <AnimateWrapper
             duration={1}
-            delay={0.5}
+            delay={0.6}
             type="FadeInBottom"
             once={true}
           >
@@ -192,7 +204,7 @@ const PaymentsForm = () => {
           </AnimateWrapper>
           <AnimateWrapper
             duration={1}
-            delay={0.6}
+            delay={0.7}
             type="FadeInBottom"
             once={true}
           >
@@ -206,7 +218,7 @@ const PaymentsForm = () => {
           </AnimateWrapper>
           <AnimateWrapper
             duration={1}
-            delay={0.7}
+            delay={0.8}
             type="FadeInBottom"
             once={true}
             className="flex flex-col w-auto m-4 gap-1"
@@ -231,7 +243,7 @@ const PaymentsForm = () => {
         </div>
         <AnimateWrapper
           duration={1}
-          delay={0.8}
+          delay={0.9}
           type="FadeInBottom"
           once={true}
           className="flex gap-4 py-8 justify-center items-center"
