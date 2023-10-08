@@ -24,7 +24,7 @@ export const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
             "primary-color": "#EE00AB",
             "secondary-color": "#ff4dcc",
             "active-color": "#b30080",
-            "mobile-grey": "#050505",
+            "mobile-gray": "#050505",
           },
         },
       },
@@ -46,7 +46,7 @@ export const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
       </Column>
     </Row>
     <Row className="bg-black p-8 text-center">
-      <Column className="p-8 bg-mobile-grey rounded-2xl text-center">
+      <Column className="p-8 bg-mobile-gray rounded-2xl text-center">
         <Text className="text-center text-3xl font-medium italic text-slate-50 tracking-wide p-2">
           {message}
         </Text>

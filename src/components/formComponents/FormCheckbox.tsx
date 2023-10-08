@@ -1,11 +1,20 @@
+import { maxCheckboxContentLength } from "@/constants/maxValues";
 import { Checkbox, FormControlLabel, Typography } from "@mui/material";
 import { Controller, useFormContext } from "react-hook-form";
 
-const FormCheckbox = ({ name, label }: { name: string; label: string }) => {
+const FormCheckbox = ({
+  name,
+  label,
+  onClick,
+}: {
+  name: string;
+  label: string;
+  onClick?: (e: any) => void;
+}) => {
   const { control } = useFormContext();
 
   return (
-    <div className="flex items-center">
+    <div className="flex items-center py-1" onClick={onClick}>
       <Controller
         control={control}
         name={name}
@@ -23,7 +32,11 @@ const FormCheckbox = ({ name, label }: { name: string; label: string }) => {
                 />
               </div>
             }
-            label={label}
+            label={
+              label.length > maxCheckboxContentLength
+                ? label.slice(0, maxCheckboxContentLength) + "..."
+                : label
+            }
             labelPlacement="end"
           />
         )}
