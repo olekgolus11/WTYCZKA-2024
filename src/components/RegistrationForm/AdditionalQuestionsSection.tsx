@@ -13,9 +13,26 @@ import {
   AdditionalConsentLabel,
 } from "./selectOptions";
 import FormField from "../formComponents/FormField";
+import AdditionalSectionDialog from "./AdditionalSectionDialog";
+import { maxCheckboxContentLength } from "@/constants/maxValues";
+import { useState } from "react";
 
 const AdditionalQuestionsSection = () => {
   const { languageMode } = useLanguageModeContext();
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [dialogTextContent, setDialogTextContent] = useState("");
+
+  const handleDialogContent = (
+    e: any,
+    textObject: { PL: string; EN: string }
+  ) => {
+    if (e.target.textContent.length > maxCheckboxContentLength) {
+      const text = languageMode == "english" ? textObject.EN : textObject.PL;
+      setDialogTextContent(text);
+      setIsDialogOpen(true);
+    }
+  };
+
   return (
     <>
       <Typography
@@ -73,10 +90,39 @@ const AdditionalQuestionsSection = () => {
         />
       </div>
       <div className="flex flex-col m-4">
-        <FormCheckbox label={StatuteConsentLabel} name="statuteAccept" />
-        <FormCheckbox label={PersonalConsentLabel} name="personalDataAccept" />
-        <FormCheckbox label={AdditionalConsentLabel} name="additionalAccept" />
+        <FormCheckbox
+          label={
+            languageMode == "english"
+              ? StatuteConsentLabel.EN
+              : StatuteConsentLabel.PL
+          }
+          name="statuteAccept"
+          onClick={(e) => handleDialogContent(e, StatuteConsentLabel)}
+        />
+        <FormCheckbox
+          label={
+            languageMode == "english"
+              ? PersonalConsentLabel.EN
+              : PersonalConsentLabel.PL
+          }
+          name="personalDataAccept"
+          onClick={(e) => handleDialogContent(e, PersonalConsentLabel)}
+        />
+        <FormCheckbox
+          label={
+            languageMode == "english"
+              ? AdditionalConsentLabel.EN
+              : AdditionalConsentLabel.PL
+          }
+          name="additionalAccept"
+          onClick={(e) => handleDialogContent(e, AdditionalConsentLabel)}
+        />
       </div>
+      <AdditionalSectionDialog
+        isDialogOpen={isDialogOpen}
+        setIsDialogOpen={setIsDialogOpen}
+        dialogTextContent={dialogTextContent}
+      />
     </>
   );
 };

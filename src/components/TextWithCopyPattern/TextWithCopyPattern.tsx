@@ -1,9 +1,8 @@
 "use client";
-import { useLanguageModeContext } from "@/contexts/LanguageModeContext";
 import copyToClipboard from "@/functions/copyToClipboard";
 import removeBorderPunctuation from "@/functions/removeBorderPunctuation";
-import useScreenWidth from "@/hooks/useScreenWidth";
 import { useState } from "react";
+import CopyToast from "./CopyToast";
 
 const TextWithCopyPattern = ({
   text,
@@ -15,8 +14,6 @@ const TextWithCopyPattern = ({
   slideIndex: number;
 }) => {
   const [isPopupVisible, setIsPopupVisible] = useState(false);
-  const { languageMode } = useLanguageModeContext();
-  const screenWidth = useScreenWidth();
   return (
     <>
       {text.split(" ").map((word, index) => (
@@ -41,14 +38,11 @@ const TextWithCopyPattern = ({
           )}{" "}
         </span>
       ))}
-      <span
-        className={`absolute bg-secondary-color rounded-lg p-2 text-lg transition-all duration-500 ease-in-out shadow-xl shadow-black left-4 ${
-          isPopupVisible ? "bottom-4" : "-bottom-16"
-        }`}
-        style={{ transform: `translateX(${slideIndex * screenWidth}px)` }}
-      >
-        {languageMode === "polish" ? "Skopiowano" : "Copied"}
-      </span>
+      <CopyToast
+        slideIndex={slideIndex}
+        isPopupVisible={isPopupVisible}
+        setIsPopupVisible={setIsPopupVisible}
+      />
     </>
   );
 };
