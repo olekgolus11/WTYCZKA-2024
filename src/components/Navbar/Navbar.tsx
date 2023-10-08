@@ -24,7 +24,7 @@ const Navbar = () => {
       className={`sticky top-0 w-full z-10 py-4 ${
         screenWidth > mobileNavbarThreshold
           ? "bg-transparent"
-          : "bg-mobile-gray shadow-md shadow-mobile-gray"
+          : "bg-mobile-grey shadow-md shadow-mobile-grey"
       }`}
       id="navbar"
     >

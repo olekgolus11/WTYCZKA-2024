@@ -18,7 +18,7 @@ const Toast = ({
   const screenWidth = useScreenWidth();
   const { languageMode } = useLanguageModeContext();
   const handleClose = (
-    _event: React.SyntheticEvent | Event,
+    event: React.SyntheticEvent | Event,
     reason?: string
   ) => {
     if (reason === "clickaway") {
@@ -30,11 +30,11 @@ const Toast = ({
 
   const message = () => {
     if (error) {
-      return languageMode === "polish"
+      return languageMode == "polish"
         ? "Wystąpił błąd, spróbuj ponownie"
         : "An error occurred, please try again";
     } else {
-      return languageMode === "polish"
+      return languageMode == "polish"
         ? "Przesłano pomyślnie"
         : "Successfully send";
     }
