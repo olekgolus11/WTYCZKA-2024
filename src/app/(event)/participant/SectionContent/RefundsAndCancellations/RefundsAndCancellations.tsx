@@ -18,7 +18,7 @@ const RefundsAndCancellations = () => {
       <AnimateWrapper duration={1} delay={0.1} type="FadeInTop">
         {usedLanguageText.content.map((paragraph, index) => (
           <p key={index} className="py-2">
-            <TextWithCopyPattern text={paragraph} pattern="@" slideIndex={4} />
+            <TextWithCopyPattern text={paragraph} pattern="@" slideIndex={5} />
           </p>
         ))}
       </AnimateWrapper>
