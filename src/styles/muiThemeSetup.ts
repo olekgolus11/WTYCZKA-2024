@@ -33,7 +33,7 @@ const MuiSetup = {
               borderColor: "#ffffff",
             },
             "&.Mui-focused fieldset": {
-              borderColor: "#b30080",
+              borderColor: "#ffffff",
             },
             "& .MuiInputBase-icon": {
               color: "#ffffff",
