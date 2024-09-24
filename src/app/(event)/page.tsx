@@ -23,13 +23,6 @@ export default function Home() {
             className="min-w-full"
           />
         </AnimateWrapper>
-        <AnimateWrapper duration={1} delay={0.2} type="FadeInBottom">
-          <h2 className="capitalize font-semibold tracking-wide text-xl text-center">
-            {languageMode === "english"
-              ? "training and integration trip"
-              : "wyjazd szkoleniowo-integracyjny"}
-          </h2>
-        </AnimateWrapper>
         <div className="flex flex-wrap gap-4 items-center justify-center">
           <AnimateWrapper duration={1} delay={0.4} type="FadeInBottom">
             <Link href={PARTICIPANT_PAGE}>
