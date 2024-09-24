@@ -36,14 +36,6 @@ export const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
           {name + " "}zadał pytanie odnośnie wyjazdu
         </Text>
       </Column>
-      <Column className="bg-black">
-        <Img
-          src="https://iili.io/JJla1xp.png"
-          alt="tripImage"
-          width="250"
-          height="200"
-        />
-      </Column>
     </Row>
     <Row className="bg-black p-8 text-center">
       <Column className="p-8 bg-mobile-grey rounded-2xl text-center">

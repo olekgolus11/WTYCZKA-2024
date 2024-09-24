@@ -10,7 +10,7 @@ export async function POST(request: Request) {
   try {
     const data = await resend.emails.send({
       from: `WTYCZKA <onboarding@resend.dev>`,
-      to: "wtyczka2023@samorzad.p.lodz.pl",
+      to: "a.golus@samorzad.p.lodz.pl",
       reply_to: email,
       subject: `Pytanie od użytkownika ${name}`,
       text: "Wyjazd wtyczka",
