@@ -22,7 +22,7 @@ export const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
         extend: {
           colors: {
             "primary-color": "#EE00AB",
-            "secondary-color": "#ff4dcc",
+            "secondary-color": "#d21212",
             "active-color": "#b30080",
             "mobile-grey": "#050505",
           },

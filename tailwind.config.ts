@@ -18,25 +18,25 @@ const config: Config = {
         "bigger-label": "2.5rem",
       },
       colors: {
-        "primary-color": "#EE00AB",
-        "secondary-color": "#ff4dcc",
-        "active-color": "#b30080",
+        "primary-color": "#d21212",
+        "secondary-color": "#b00d0d",
+        "active-color": "#aa1313",
         "mobile-grey": "#050505",
       },
       stroke: {
-        "primary-color": "#EE00AB",
-        "secondary-color": "#ff4dcc",
-        "active-color": "#b30080",
+        "primary-color": "#d21212",
+        "secondary-color": "#b00d0d",
+        "active-color": "#aa1313",
       },
       borderColor: {
-        "primary-color": "#EE00AB",
-        "secondary-color": "#ff4dcc",
-        "active-color": "#b30080",
+        "primary-color": "#d21212",
+        "secondary-color": "#b00d0d",
+        "active-color": "#aa1313",
       },
       boxShadowColor: {
-        "primary-color": "#EE00AB",
-        "secondary-color": "#ff4dcc",
-        "active-color": "#b30080",
+        "primary-color": "#d21212",
+        "secondary-color": "#b00d0d",
+        "active-color": "#aa1313",
       },
       keyframes: {
         "spring-right": {

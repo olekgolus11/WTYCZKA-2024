@@ -21,7 +21,7 @@ const RegistrationForm = () => {
   const registrationCollectionRef = collection(db, "registration");
   const [open, setOpen] = useState(false);
   const [isSubmitError, setIsSubmitError] = useState(false);
-  const [isRegistrationOpen, setIsRegistrationOpen] = useState(false);
+  const [isRegistrationOpen, setIsRegistrationOpen] = useState(true);
   const [isFetchError, setIsFetchError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -35,7 +35,8 @@ const RegistrationForm = () => {
         const registration = forms.filter(
           (state) => state.form === "registration"
         );
-        setIsRegistrationOpen(registration[0].isOpen);
+        setIsRegistrationOpen(true);
+        // setIsRegistrationOpen(registration[0].isOpen);
         setIsFetchError(false);
       } catch (e) {
         setIsFetchError(true);

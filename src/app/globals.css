@@ -38,7 +38,7 @@
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: #ee00ab #f8fafc;
+  scrollbar-color: #b00d0d #f8fafc;
 }
 
 *::-webkit-scrollbar {
@@ -52,7 +52,7 @@
 
 *::-webkit-scrollbar-thumb {
   border-radius: 3px;
-  background-color: #ee00ab;
+  background-color: #b00d0d;
 }
 
 *::-webkit-file-upload-button {
@@ -62,11 +62,27 @@
 body {
   color: rgb(255, 255, 255);
   min-height: 100svh;
-  background: url("/background.png") no-repeat right #000000;
+  background-image: url("/background/city.png");
+  background-repeat: no-repeat;
+  background-position: right;
+  background-color: #000000;
   -o-background-size: cover;
   -moz-background-size: cover;
   -webkit-background-size: cover;
   background-size: cover;
+}
+
+@keyframes combinedLightSwitch {
+  0%, 49.99% {
+    background-image: url("/background/main_light.png"), url("/background/city.png"), url("/background/red_light_on.png"), url("/background/light1_on.png"), url("/background/light2_on.png"), url("/background/light3_on.png");
+  }
+  50%, 100% {
+    background-image: url("/background/main_light.png"), url("/background/city.png"), url("/background/red_light_off.png"), url("/background/light1_off.png"), url("/background/light2_off.png"), url("/background/light3_off.png");
+  }
+}
+
+body {
+  animation: combinedLightSwitch 3s infinite;
 }
 
 html {

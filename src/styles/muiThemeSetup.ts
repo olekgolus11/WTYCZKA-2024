@@ -4,13 +4,13 @@ import { createTheme } from "@mui/material";
 const MuiSetup = {
   palette: {
     primary: {
-      main: "#ff4dcc",
+      main: "#b00d0d",
     },
     secondary: {
       main: "#000000",
     },
     success: {
-      main: "#ff4dcc",
+      main: "#b00d0d",
     },
   },
   typography: {
