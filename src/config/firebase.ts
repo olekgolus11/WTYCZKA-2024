@@ -1,10 +1,9 @@
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
 import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCRpYRUv0AjaNPScq6rkoSq8l1gxxhWcvU",
+  apiKey: process.env.FIREBASE_API_KEY,
   authDomain: "wtyczka-b0ddc.firebaseapp.com",
   projectId: "wtyczka-b0ddc",
   storageBucket: "wtyczka-b0ddc.appspot.com",
@@ -14,6 +13,5 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-// const analytics = getAnalytics(app);
 export const db = getFirestore(app);
 export const storage = getStorage(app);

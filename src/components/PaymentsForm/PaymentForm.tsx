@@ -26,7 +26,7 @@ const PaymentsForm = () => {
   const paymentCollectionRef = collection(db, "payment");
   const [open, setOpen] = useState(false);
   const [isSubmitError, setIsSubmitError] = useState(false);
-  const [isPaymentOpen, setIsPaymentOpen] = useState(true);
+  const [isPaymentOpen, setIsPaymentOpen] = useState(false);
   const [isFetchError, setIsFetchError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
