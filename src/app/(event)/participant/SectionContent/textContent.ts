@@ -36,8 +36,8 @@ export const CampBriefingTextPL = {
   date: "czwartek, 24 października 2024",
   heading: "Nie zapomnijcie ze sobą oświadczenia obozowego!",
   content: [
-    "Uczestników informujemy, że na odprawie obozowej obecny będzie Pan Dziekan Wydziału Elektrotechniki, Elektroniki, Informatyki i Automatyki. Osoby, które stawią się w miejscu zbiórki i odprawy w stanie wskazującym na spożycie alkoholu lub środków odurzających, będą w trybie natychmiastowym wydalane z Wyjazdu jeszcze przed wyjazdem z Łodzi bez możliwości ubiegania się Uczestnika o zwrot kosztów.",
-    "W trakcie trwania Wtyczki 2024 przewidywana jest również wizytacja Władz Uczelni, Wydziału oraz przedstawicieli Politechniki Łódzkiej.",
+    "Uczestników informujemy, że na odprawie obozowej obecne będą Władze Uczelni. Osoby, które stawią się w miejscu zbiórki i odprawy w stanie wskazującym na spożycie alkoholu lub środków odurzających, będą w trybie natychmiastowym wydalane z Wyjazdu jeszcze przed wyjazdem z Łodzi bez możliwości ubiegania się Uczestnika o zwrot kosztów.",
+    "W trakcie trwania samej Wtyczki 2024 również jest przewidywana wizytacja Władz Uczelni, Wydziału oraz przedstawicieli Politechniki Łódzkiej.",
   ],
   href: CAMP_STATEMENT,
   linkStart: 4,
@@ -48,8 +48,8 @@ export const CampBriefingTextEN = {
   date: "Thursday, October 24, 2024",
   heading: "Don't forget your camp statement!",
   content: [
-    "Participants are informed that the Dean of the Faculty of Electrical, Electronic, Computer Science and Automation will be present at the camp briefing. Persons who appear at the meeting and briefing in a state indicating the consumption of alcohol or intoxicants will be immediately expelled from the Trip even before leaving Lodz without the possibility for the Participant to apply for a refund of costs.",
-    " During the Wtyczka 2024, a visit of the Authorities of the University, the Faculty and representatives of the Lodz University of Technology is also planned.",
+    "Participants are informed that the University Authorities will be present at the camp briefing. Persons who appear at the meeting place and briefing in a state indicating the consumption of alcohol or intoxicants will be immediately expelled from the Trip even before leaving Lodz without the possibility of the Participant applying for a refund of costs.",
+    "During the Wtyczka 2024 itself, a visit of the University Authorities, the Faculty and representatives of the Lodz University of Technology is also planned.",
   ],
   href: CAMP_STATEMENT,
   linkStart: 3,
@@ -59,14 +59,14 @@ export const CampBriefingTextEN = {
 export const VatInvoicesTextPL = {
   content: [
     "Uczestnicy, którzy chcą otrzymać fakturę VAT za Wyjazd „Wtyczka 2024”, zobowiązani są zgłosić ten fakt podczas wypełniania formularza rejestracyjnego oraz wysłać wiadomość mailową na adres wtyczka@samorzad.p.lodz.pl i m.krolewiak@samorzad.p.lodz.pl. Wiadomość powinna zawierać wszelkie niezbędne dane do wystawienia faktury VAT (imię, nazwisko, numer NIP, adres odbiorcy faktury) oraz telefon kontaktowy.",
-    "Informujemy jednocześnie, iż faktury VAT wystawiane będą dopiero po zakończeniu Wtyczki, tj. od dnia 1.11.2024 r. Po odbiór faktury można zgłosić się do biura Wydziałowej Rady Samorządu przy ul. Bohdana Stefanowskiego 18/22, I piętro (obok bufetu) po wcześniejszym ustaleniu mailowym terminu odbioru faktury. Możliwe jest także otrzymanie faktury pocztą (adres do przesłania faktury musi być podany w mailu dotyczącym otrzymania faktury). Czas oczekiwania na fakturę VAT może wynosić nawet do 30 dni roboczych.",
+    "Informujemy jednocześnie, iż faktury VAT wystawiane będą w ciągu 7 dni od otrzymania wpłaty za wyjazd. Po odbiór faktury można zgłosić się do biura Wydziałowej Rady Samorządu przy ul. Bohdana Stefanowskiego 18/22, I piętro (obok bufetu) po wcześniejszym ustaleniu mailowym terminu odbioru faktury. Możliwe jest także otrzymanie faktury pocztą (adres do przesłania faktury musi być podany w mailu dotyczącym otrzymania faktury).",
   ],
 };
 
 export const VatInvoicesTextEN = {
   content: [
     "Participants who want to receive a VAT invoice for the Trip “Wtyczka 2024” are obliged to report this fact during the registration form and send an e-mail to wtyczka@samorzad.p.lodz.pl and m.krolewiak@samorzad.p.lodz.pl. The message should contain all the necessary data to issue a VAT invoice (name, surname, tax identification number, address of the invoice recipient) and a contact phone number.",
-    "We also inform that VAT invoices will be issued only after the end of the Wtyczka, i.e. from November 1, 2024. To receive the invoice, you can go to the office of the Faculty Council of the Student Government at Bohdana Stefanowskiego 18/22, 1st floor (next to the buffet) after prior arrangement of the date of receipt by e-mail. It is also possible to receive the invoice by post (the address to send the invoice must be given in the e-mail regarding the receipt of the invoice). The waiting time for a VAT invoice may be up to 30 business days.",
+    "We also inform that VAT invoices will be issued within 7 days of receiving the payment for the trip. After receiving the invoice, you can go to the office of the Faculty Council of the Student Government at ul. Bohdana Stefanowskiego 18/22, 1st floor (next to the buffet) after prior email agreement on the date of invoice collection. It is also possible to receive the invoice by post (the address for sending the invoice must be provided in the e-mail regarding the receipt of the invoice).",
   ],
 };
 

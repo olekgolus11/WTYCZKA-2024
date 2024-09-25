@@ -22,6 +22,7 @@ export type registrationType = {
   nipPeselInvoice: string;
   sourceOther: string;
   maturityConsent: boolean;
+  birthDate?: string;
 };
 
 export const registrationTypeInitial: registrationType = {
@@ -48,4 +49,5 @@ export const registrationTypeInitial: registrationType = {
   nipPeselInvoice: "",
   sourceOther: "",
   maturityConsent: false,
+  birthDate: "",
 };

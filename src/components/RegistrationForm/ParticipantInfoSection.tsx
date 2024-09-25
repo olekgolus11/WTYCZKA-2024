@@ -59,6 +59,14 @@ const ParticipantInfoSection = () => {
           isRequired={true}
           options={languageMode == "english" ? SexOptions.EN : SexOptions.PL}
         />
+        <FormField
+          label={languageMode == "english" ? "Date of birth" : "Data urodzenia"}
+          registerName="birthDate"
+          isRequired={true}
+          fieldType="date"
+          minLength={10}
+          maxLength={10}
+        />
       </div>
     </>
   );

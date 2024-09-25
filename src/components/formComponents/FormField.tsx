@@ -2,7 +2,8 @@
 import { useLanguageModeContext } from "@/contexts/LanguageModeContext";
 import { TextField, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
-import { useFormContext } from "react-hook-form";
+import { set, useFormContext } from "react-hook-form";
+import { differenceInYears } from 'date-fns';
 
 const FormField = ({
   label,
@@ -15,7 +16,7 @@ const FormField = ({
 }: {
   label: string;
   isRequired: boolean;
-  fieldType?: "numeric" | "postal-code" | "mail";
+  fieldType?: "numeric" | "postal-code" | "mail" | "date";
   minLength: number;
   maxLength: number;
   registerName: string;
@@ -25,15 +26,28 @@ const FormField = ({
   const [pattern, setPattern] = useState(/.*/g);
   const { errors } = formState;
   const { languageMode } = useLanguageModeContext();
+  const [parsedFieldType, setParsedFieldType] = useState<string>("text");
+
+  const isAtLeast18YearsOld = (value: string) => {
+    const today = new Date();
+    const birthDate = new Date(value);
+    return differenceInYears(today, birthDate) >= 18 || (languageMode == "english" ? "You must be at least 18 years old" : "Musisz mieć co najmniej 18 lat");
+  };
 
   useEffect(() => {
     if (fieldType == "mail") {
       setPattern(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g);
+      setParsedFieldType("email");
     } else if (fieldType == "numeric") {
       setPattern(/^[0-9,]*$/g);
+      setParsedFieldType("text");
     } else if (fieldType == "postal-code") {
       setPattern(/^[0-9]{2}-[0-9]{3}$/g);
-    } else {
+      setParsedFieldType("text");
+    } else if (fieldType == "date") {
+      setParsedFieldType("date");
+    }
+    else {
       setPattern(/.*/g);
     }
   }, [fieldType]);
@@ -44,7 +58,7 @@ const FormField = ({
         {label} {isRequired && <span className="text-primary-color">*</span>}
       </Typography>
       <TextField
-        type={fieldType == "mail" ? "email" : "text"}
+        type={parsedFieldType}
         helperText={errors[registerName]?.message?.toString()}
         error={!!errors[registerName]}
         id={`outlined-basic-${label}`}
@@ -75,6 +89,7 @@ const FormField = ({
                 ? "invalid format"
                 : "niepoprawny format",
           },
+          validate: fieldType === "date" ? isAtLeast18YearsOld : undefined,
         })}
       />
     </div>
@@ -82,3 +97,6 @@ const FormField = ({
 };
 
 export default FormField;
+
+
+

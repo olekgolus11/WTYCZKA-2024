@@ -11,7 +11,6 @@ import {
   SourceOptions,
   PersonalConsentLabel,
   AdditionalConsentLabel,
-  MaturityConsent,
 } from "./selectOptions";
 import AdditionalSectionDialog from "./AdditionalSectionDialog";
 import { maxCheckboxContentLength } from "@/constants/maxValues";
@@ -171,13 +170,6 @@ const AdditionalQuestionsSection = () => {
           }
           name="additionalAccept"
           onClick={(e) => handleDialogContent(e, AdditionalConsentLabel)}
-        />
-        <FormCheckbox
-          label={
-            languageMode == "english" ? MaturityConsent.EN : MaturityConsent.PL
-          }
-          name="maturityConsent"
-          onClick={(e) => handleDialogContent(e, MaturityConsent)}
         />
       </div>
       <AdditionalSectionDialog
