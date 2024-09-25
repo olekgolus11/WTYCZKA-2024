@@ -35,7 +35,8 @@ const RegistrationForm = () => {
         const registration = forms.filter(
           (state) => state.form === "registration"
         );
-        setIsRegistrationOpen(registration[0].isOpen);
+        // setIsRegistrationOpen(registration[0].isOpen);
+        setIsRegistrationOpen(true);
         setIsFetchError(false);
       } catch (e) {
         setIsFetchError(true);

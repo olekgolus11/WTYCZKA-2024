@@ -20,6 +20,8 @@ export type registrationType = {
   firstNameInvoice: string;
   lastNameInvoice: string;
   nipPeselInvoice: string;
+  sourceOther: string;
+  maturityConsent: boolean;
 };
 
 export const registrationTypeInitial: registrationType = {
@@ -44,4 +46,6 @@ export const registrationTypeInitial: registrationType = {
   firstNameInvoice: "",
   lastNameInvoice: "",
   nipPeselInvoice: "",
+  sourceOther: "",
+  maturityConsent: false,
 };

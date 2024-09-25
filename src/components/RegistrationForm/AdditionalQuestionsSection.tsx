@@ -11,6 +11,7 @@ import {
   SourceOptions,
   PersonalConsentLabel,
   AdditionalConsentLabel,
+  MaturityConsent,
 } from "./selectOptions";
 import AdditionalSectionDialog from "./AdditionalSectionDialog";
 import { maxCheckboxContentLength } from "@/constants/maxValues";
@@ -41,6 +42,12 @@ const AdditionalQuestionsSection = () => {
     defaultValue: "",
   });
 
+  const sourceState = useWatch({
+    control,
+    name: "source",
+    defaultValue: "",
+  });
+
   return (
     <>
       <Typography
@@ -68,6 +75,14 @@ const AdditionalQuestionsSection = () => {
           options={ShirtSizeOptions.PL}
         />
         <FormSelect
+          label={languageMode == "english" ? "Invoice" : "Faktura"}
+          registerName="invoice"
+          isRequired={true}
+          options={
+            languageMode == "english" ? InvoiceOptions.EN : InvoiceOptions.PL
+          }
+        />
+        <FormSelect
           label={
             languageMode == "english"
               ? "How do you know about Wtyczka"
@@ -79,14 +94,19 @@ const AdditionalQuestionsSection = () => {
             languageMode == "english" ? SourceOptions.EN : SourceOptions.PL
           }
         />
-        <FormSelect
-          label={languageMode == "english" ? "Invoice" : "Faktura"}
-          registerName="invoice"
-          isRequired={true}
-          options={
-            languageMode == "english" ? InvoiceOptions.EN : InvoiceOptions.PL
-          }
-        />
+        {(sourceState === "Inne" || sourceState === "Other") && (
+          <FormField
+            label={
+              languageMode == "english"
+                ? "Please specify source"
+                : "Proszę opisać źródło"
+            }
+            registerName="sourceOther"
+            isRequired={true}
+            minLength={3}
+            maxLength={20}
+          />
+        )}
       </div>
       {(invoiceValue === "tak" || invoiceValue === "yes") && (
         <>
@@ -151,6 +171,13 @@ const AdditionalQuestionsSection = () => {
           }
           name="additionalAccept"
           onClick={(e) => handleDialogContent(e, AdditionalConsentLabel)}
+        />
+        <FormCheckbox
+          label={
+            languageMode == "english" ? MaturityConsent.EN : MaturityConsent.PL
+          }
+          name="maturityConsent"
+          onClick={(e) => handleDialogContent(e, MaturityConsent)}
         />
       </div>
       <AdditionalSectionDialog
