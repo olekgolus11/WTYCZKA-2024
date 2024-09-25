@@ -1,10 +1,15 @@
 export const SexOptions = {
-  PL: ["kobieta", "mężczyzna"],
-  EN: ["male", "female"],
+  PL: ["kobieta", "mężczyzna", "inna"],
+  EN: ["male", "female", "other"],
 };
 
 export const DegreeOptions = {
-  PL: ["I", "II", "III"],
+  PL: ["I (inżynierka / licencjat)", "II (magisterskie)", "III (doktorskie)"],
+  EN: [
+    "I (engineering / bachelor's degree)",
+    "II (master's degree)",
+    "III (PhD)",
+  ],
 };
 
 export const FacultyOptions = {
@@ -33,8 +38,8 @@ export const FacultyOptions = {
 };
 
 export const DietOptions = {
-  PL: ["standardowa", "wegetariańska", "piątek bez mięsa"],
-  EN: ["standard", "vegetarian", "friday without meat"],
+  PL: ["standardowa", "wegetariańska (+30zł)"],
+  EN: ["standard", "vegetarian (+30zł)"],
 };
 
 export const ShirtSizeOptions = {
@@ -42,15 +47,8 @@ export const ShirtSizeOptions = {
 };
 
 export const SourceOptions = {
-  PL: [
-    "Facebook",
-    "Instagram",
-    "Strona internetowa",
-    "Znajomi",
-    "Plakat",
-    "Inne",
-  ],
-  EN: ["Facebook", "Instagram", "Website", "Friends", "Poster", "Other"],
+  PL: ["Social Media", "Akcja Integracja", "Znajomi", "Standy", "Inne"],
+  EN: ["Social Media", "Akcja integracja", "Friends", "Stands", "Other"],
 };
 
 export const InvoiceOptions = {
@@ -58,8 +56,8 @@ export const InvoiceOptions = {
   EN: ["yes", "no"],
 };
 
-export const SessionOptions = {
-  PL: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"],
+export const CollegeLevel = {
+  PL: ["1", "2", "3", "4"],
 };
 
 export const StatuteConsentLabel = {

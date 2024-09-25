@@ -59,32 +59,6 @@ const ParticipantInfoSection = () => {
           isRequired={true}
           options={languageMode == "english" ? SexOptions.EN : SexOptions.PL}
         />
-        <FormField
-          label={languageMode == "english" ? "Postal code" : "Kod pocztowy"}
-          registerName="postalCode"
-          isRequired={true}
-          fieldType="postal-code"
-          minLength={6}
-          maxLength={6}
-        />
-        <FormField
-          label={languageMode == "english" ? "City" : "Miasto"}
-          registerName="city"
-          isRequired={true}
-          minLength={2}
-          maxLength={30}
-        />
-        <FormField
-          label={
-            languageMode == "english"
-              ? "Street, house number"
-              : "Ulica, numer domu"
-          }
-          registerName="street"
-          isRequired={true}
-          minLength={3}
-          maxLength={30}
-        />
       </div>
     </>
   );

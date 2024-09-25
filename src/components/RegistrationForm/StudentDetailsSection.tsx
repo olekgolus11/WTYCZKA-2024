@@ -3,7 +3,7 @@ import Typography from "@mui/material/Typography";
 import FormSelect from "../formComponents/FormSelect";
 import FormField from "../formComponents/FormField";
 import { useLanguageModeContext } from "@/contexts/LanguageModeContext";
-import { DegreeOptions, FacultyOptions, SessionOptions } from "./selectOptions";
+import { DegreeOptions, FacultyOptions, CollegeLevel } from "./selectOptions";
 
 const StudentDetailsSection = () => {
   const { languageMode } = useLanguageModeContext();
@@ -33,6 +33,15 @@ const StudentDetailsSection = () => {
           minLength={6}
           maxLength={6}
         />
+        <FormField
+          label={
+            languageMode == "english" ? "Field of Study" : "Kierunek studiów"
+          }
+          registerName="fieldOfStudy"
+          isRequired={true}
+          minLength={2}
+          maxLength={15}
+        />
         <FormSelect
           label={languageMode == "english" ? "Degree" : "Stopień studiów"}
           registerName="degree"
@@ -40,10 +49,10 @@ const StudentDetailsSection = () => {
           options={DegreeOptions.PL}
         />
         <FormSelect
-          label={languageMode == "english" ? "Session" : "Semestr"}
-          registerName="session"
+          label={languageMode == "english" ? "College level" : "Rok studiów"}
+          registerName="collegeLevel"
           isRequired={true}
-          options={SessionOptions.PL}
+          options={CollegeLevel.PL}
         />
       </div>
     </>

@@ -12,15 +12,17 @@ import {
   PersonalConsentLabel,
   AdditionalConsentLabel,
 } from "./selectOptions";
-import FormField from "../formComponents/FormField";
 import AdditionalSectionDialog from "./AdditionalSectionDialog";
 import { maxCheckboxContentLength } from "@/constants/maxValues";
 import { useState } from "react";
+import { useFormContext, useWatch } from "react-hook-form";
+import FormField from "../formComponents/FormField";
 
 const AdditionalQuestionsSection = () => {
   const { languageMode } = useLanguageModeContext();
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [dialogTextContent, setDialogTextContent] = useState("");
+  const { control } = useFormContext();
 
   const handleDialogContent = (
     e: any,
@@ -32,6 +34,12 @@ const AdditionalQuestionsSection = () => {
       setIsDialogOpen(true);
     }
   };
+
+  const invoiceValue = useWatch({
+    control,
+    name: "invoice",
+    defaultValue: "",
+  });
 
   return (
     <>
@@ -59,15 +67,6 @@ const AdditionalQuestionsSection = () => {
           isRequired={true}
           options={ShirtSizeOptions.PL}
         />
-        <FormField
-          label={
-            languageMode == "english" ? "Foot size (EU)" : "Rozmiar buta (EU)"
-          }
-          registerName="footSize"
-          isRequired={true}
-          minLength={2}
-          maxLength={4}
-        />
         <FormSelect
           label={
             languageMode == "english"
@@ -89,6 +88,42 @@ const AdditionalQuestionsSection = () => {
           }
         />
       </div>
+      {(invoiceValue === "tak" || invoiceValue === "yes") && (
+        <>
+          <Typography
+            variant="h6"
+            className="text-primary-color"
+            sx={{ margin: "1rem" }}
+          >
+            {languageMode == "english"
+              ? "Invoice information"
+              : "Informacje do faktury"}
+          </Typography>
+          <div className="flex flex-col md:grid md:grid-cols-3">
+            <FormField
+              label={languageMode == "english" ? "First name" : "Imię"}
+              registerName="firstNameInvoice"
+              isRequired={true}
+              minLength={2}
+              maxLength={15}
+            />
+            <FormField
+              label={languageMode == "english" ? "Last name" : "Nazwisko"}
+              registerName="lastNameInvoice"
+              isRequired={true}
+              minLength={3}
+              maxLength={15}
+            />
+            <FormField
+              label={languageMode == "english" ? "NIP/PESEL" : "NIP/PESEL"}
+              registerName="nipPeselInvoice"
+              isRequired={true}
+              minLength={3}
+              maxLength={15}
+            />
+          </div>
+        </>
+      )}
       <div className="flex flex-col m-4">
         <FormCheckbox
           label={

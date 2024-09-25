@@ -5,21 +5,21 @@ export type registrationType = {
   phone: string;
   pesel: string;
   sex: string;
-  postalCode: string;
-  city: string;
-  street: string;
   faculty: string;
   indexNumber: string;
   degree: string;
-  session: string;
+  collegeLevel: string;
+  fieldOfStudy: string;
   diet: string;
   shirtSize: string;
-  footSize: string;
   source: string;
   invoice: string;
   statuteAccept: boolean;
   personalDataAccept: boolean;
   additionalAccept: boolean;
+  firstNameInvoice: string;
+  lastNameInvoice: string;
+  nipPeselInvoice: string;
 };
 
 export const registrationTypeInitial: registrationType = {
@@ -29,19 +29,19 @@ export const registrationTypeInitial: registrationType = {
   phone: "",
   pesel: "",
   sex: "",
-  postalCode: "",
-  city: "",
-  street: "",
   faculty: "",
   indexNumber: "",
   degree: "",
-  session: "",
+  collegeLevel: "",
+  fieldOfStudy: "",
   diet: "",
   shirtSize: "",
-  footSize: "",
   source: "",
   invoice: "",
   statuteAccept: false,
   personalDataAccept: false,
   additionalAccept: false,
+  firstNameInvoice: "",
+  lastNameInvoice: "",
+  nipPeselInvoice: "",
 };
