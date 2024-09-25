@@ -4,7 +4,7 @@ export const SexOptions = {
 };
 
 export const DegreeOptions = {
-  PL: ["I (inżynierka / licencjat)", "II (magisterskie)", "III (doktorskie)"],
+  PL: ["I (inżynierskie / licencjackie)", "II (magisterskie)", "III (doktorskie)"],
   EN: [
     "I (engineering / bachelor's degree)",
     "II (master's degree)",

@@ -140,6 +140,13 @@ const AdditionalQuestionsSection = () => {
               minLength={3}
               maxLength={15}
             />
+            <FormField
+              label={languageMode == "english" ? "Invoice recipient address" : "Adres odbiorcy faktury"}
+              registerName="recipentAdressInvoice"
+              isRequired={true}
+              minLength={3}
+              maxLength={50}
+            />
           </div>
         </>
       )}
