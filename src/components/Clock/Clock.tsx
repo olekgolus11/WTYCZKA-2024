@@ -15,8 +15,8 @@ const Clock = () => {
           <AnimateWrapper duration={1} delay={0.1} type="FadeInBottom">
             <p className="date-label">
               {languageMode == "polish"
-                ? "26 PAŹDZIERNIKA 2023"
-                : "26 OCTOBER 2023"}
+                ? "24 PAŹDZIERNIKA 2024"
+                : "24 OCTOBER 2024"}
             </p>
           </AnimateWrapper>
           <AnimateWrapper duration={1} delay={0.2} type="FadeInBottom">
