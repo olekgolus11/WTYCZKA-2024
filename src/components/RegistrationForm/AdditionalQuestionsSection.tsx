@@ -145,7 +145,7 @@ const AdditionalQuestionsSection = () => {
               registerName="recipentAdressInvoice"
               isRequired={true}
               minLength={3}
-              maxLength={50}
+              maxLength={150}
             />
           </div>
         </>
