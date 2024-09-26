@@ -40,7 +40,7 @@ const StudentDetailsSection = () => {
           registerName="fieldOfStudy"
           isRequired={true}
           minLength={2}
-          maxLength={15}
+          maxLength={35}
         />
         <FormSelect
           label={languageMode == "english" ? "Degree" : "Stopień studiów"}
