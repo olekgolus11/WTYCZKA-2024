@@ -222,14 +222,26 @@ const ViewerPage = () => {
                     </TableBody>
                 </Table>
             </div>
-            <div className='flex items-center justify-end space-x-2 py-4'>
-                <Button onClick={() => table.previousPage()} disabled={!table.getCanPreviousPage()}>
-                    Previous
-                </Button>
-                <Button onClick={() => table.nextPage()} disabled={!table.getCanNextPage()}>
-                    Next
-                </Button>
-            </div>
+            <div className="flex items-center justify-between space-x-2 py-4">
+        <div className="flex-1 text-sm ">
+          Showing {table.getState().pagination.pageIndex * table.getState().pagination.pageSize + 1} to {Math.min((table.getState().pagination.pageIndex + 1) * table.getState().pagination.pageSize, table.getFilteredRowModel().rows.length)} of{" "}
+          {table.getFilteredRowModel().rows.length} entries
+        </div>
+        <div className="space-x-2">
+          <Button
+            onClick={() => table.previousPage()}
+            disabled={!table.getCanPreviousPage()}
+          >
+            Previous
+          </Button>
+          <Button
+            onClick={() => table.nextPage()}
+            disabled={!table.getCanNextPage()}
+          >
+            Next
+          </Button>
+        </div>
+      </div>
         </div>
     );
 };
