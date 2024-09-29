@@ -206,7 +206,7 @@ const ViewerPage = () => {
                             table.getRowModel().rows.map((row, i) => (
                                 <TableRow key={row.id} data-state={row.getIsSelected() && "selected"}>
                                     {row.getVisibleCells().map((cell) => (
-                                        <TableCell key={cell.id} className='border px-4 py-2'>
+                                        <TableCell key={cell.id} className='border px-4 py-2 whitespace-nowrap'>
                                             {flexRender(cell.column.columnDef.cell, cell.getContext())}
                                         </TableCell>
                                     ))}
