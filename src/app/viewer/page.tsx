@@ -17,34 +17,9 @@ import {
 } from "@tanstack/react-table";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import { registrationType } from "@/components/RegistrationForm/registrationType";
 import { ArrowUpDown } from "lucide-react";
-
-type registrationType = {
-    firstName: string;
-    lastName: string;
-    email: string;
-    phone: string;
-    pesel: string;
-    sex: string;
-    faculty: string;
-    indexNumber: string;
-    degree: string;
-    collegeLevel: string;
-    fieldOfStudy: string;
-    diet: string;
-    shirtSize: string;
-    source: string;
-    invoice: string;
-    statuteAccept: boolean;
-    personalDataAccept: boolean;
-    additionalAccept: boolean;
-    firstNameInvoice: string;
-    lastNameInvoice: string;
-    nipPeselInvoice: string;
-    sourceOther: string;
-    maturityConsent: boolean;
-    birthDate?: string;
-};
 
 const columns: ColumnDef<registrationType>[] = [
     {
@@ -101,26 +76,43 @@ const ViewerPage = () => {
     const [error, setError] = useState<string | null>(null);
     const [sorting, setSorting] = useState<SortingState>([]);
     const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [password, setPassword] = useState("");
+    const [loginError, setLoginError] = useState<string | null>(null);
+
+    const correctPassword = "admin123";
 
     useEffect(() => {
-        const fetchUsers = async () => {
-            try {
-                const querySnapshot = await getDocs(collection(db, "registration"));
-                const fetchedUsers: registrationType[] = [];
-                querySnapshot.forEach((doc) => {
-                    fetchedUsers.push(doc.data() as registrationType);
-                });
-                setUsers(fetchedUsers);
-                setLoading(false);
-            } catch (err) {
-                setError("Error fetching users");
-                setLoading(false);
-                console.error("Error fetching users:", err);
-            }
-        };
+        if (isLoggedIn) {
+            const fetchUsers = async () => {
+                try {
+                    const querySnapshot = await getDocs(collection(db, "registration"));
+                    const fetchedUsers: registrationType[] = [];
+                    querySnapshot.forEach((doc) => {
+                        fetchedUsers.push(doc.data() as registrationType);
+                    });
+                    setUsers(fetchedUsers);
+                    setLoading(false);
+                } catch (err) {
+                    setError("Error fetching users");
+                    setLoading(false);
+                    console.error("Error fetching users:", err);
+                }
+            };
 
-        fetchUsers();
-    }, []);
+            fetchUsers();
+        }
+    }, [isLoggedIn]);
+
+    const handleLogin = (e: React.FormEvent) => {
+        e.preventDefault();
+        if (password === correctPassword) {
+            setIsLoggedIn(true);
+            setLoginError(null);
+        } else {
+            setLoginError("Incorrect password. Please try again.");
+        }
+    };
 
     const table = useReactTable({
         data: users,
@@ -136,6 +128,35 @@ const ViewerPage = () => {
             columnFilters,
         },
     });
+
+    if (!isLoggedIn) {
+        return (
+            <div className='flex justify-center items-center h-screen'>
+                <Card className='w-[350px]'>
+                    <CardHeader>
+                        <CardTitle>Login to View Data</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                        <form onSubmit={handleLogin}>
+                            <div className='grid w-full items-center gap-4'>
+                                <div className='flex flex-col space-y-1.5'>
+                                    <Input
+                                        id='password'
+                                        type='password'
+                                        placeholder='Enter password'
+                                        value={password}
+                                        onChange={(e) => setPassword(e.target.value)}
+                                    />
+                                </div>
+                                <Button type='submit'>Login</Button>
+                            </div>
+                        </form>
+                        {loginError && <p className='text-red-500 mt-2'>{loginError}</p>}
+                    </CardContent>
+                </Card>
+            </div>
+        );
+    }
 
     if (loading) return <div>Loading...</div>;
     if (error) return <div>Error: {error}</div>;
@@ -186,10 +207,10 @@ const ViewerPage = () => {
                 </Table>
             </div>
             <div className='flex items-center justify-end space-x-2 py-4'>
-                <Button onClick={() => table.previousPage()} disabled={!table.getCanPreviousPage()}>
+                <Button variant='outline' size='sm' onClick={() => table.previousPage()} disabled={!table.getCanPreviousPage()}>
                     Previous
                 </Button>
-                <Button onClick={() => table.nextPage()} disabled={!table.getCanNextPage()}>
+                <Button variant='outline' size='sm' onClick={() => table.nextPage()} disabled={!table.getCanNextPage()}>
                     Next
                 </Button>
             </div>
