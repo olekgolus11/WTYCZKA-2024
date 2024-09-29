@@ -3,120 +3,194 @@
 @tailwind utilities;
 
 @layer components {
-  .date-label {
-    @apply text-2xl sm:text-small-label;
-  }
+    .date-label {
+        @apply text-2xl sm:text-small-label;
+    }
 
-  .date-counter {
-    @apply text-8xl leading-tight tracking-wider sm:text-[9rem];
-  }
+    .date-counter {
+        @apply text-8xl leading-tight tracking-wider sm:text-[9rem];
+    }
 
-  .counter-label {
-    @apply font-medium text-2xl sm:text-small-label;
-  }
+    .counter-label {
+        @apply font-medium text-2xl sm:text-small-label;
+    }
 
-  .applyBasicButtonStyles {
-    @apply p-0 border-none bg-opacity-0 cursor-pointer font-bold text-center;
-  }
+    .applyBasicButtonStyles {
+        @apply p-0 border-none bg-opacity-0 cursor-pointer font-bold text-center;
+    }
 
-  .button-square {
-    @apply rounded-lg py-4 px-6 applyBasicButtonStyles duration-200;
-  }
+    .button-square {
+        @apply rounded-lg py-4 px-6 applyBasicButtonStyles duration-200;
+    }
 
-  .button-round {
-    @apply rounded-[3rem] py-4 px-9 applyBasicButtonStyles duration-200;
-  }
+    .button-round {
+        @apply rounded-[3rem] py-4 px-9 applyBasicButtonStyles duration-200;
+    }
 
-  .button-filled {
-    @apply bg-primary-color border-solid border-[0.15rem] border-primary-color duration-200 hover:bg-secondary-color hover:border-secondary-color active:bg-active-color active:border-active-color active:duration-[10];
-  }
+    .button-filled {
+        @apply bg-primary-color border-solid border-[0.15rem] border-primary-color duration-200 hover:bg-secondary-color hover:border-secondary-color active:bg-active-color active:border-active-color;
+    }
 
-  .button-outlined {
-    @apply bg-opacity-100 border-solid border-[0.15rem] border-primary-color duration-200 hover:bg-primary-color active:bg-active-color active:border-active-color active:duration-[10];
-  }
+    .button-outlined {
+        @apply bg-opacity-100 border-solid border-[0.15rem] border-primary-color duration-200 hover:bg-primary-color active:bg-active-color active:border-active-color;
+    }
 }
 
 * {
-  scrollbar-width: thin;
-  scrollbar-color: #b00d0d #f8fafc;
+    scrollbar-width: thin;
+    scrollbar-color: #b00d0d #f8fafc;
 }
 
 *::-webkit-scrollbar {
-  width: 10px;
-  width: 10px;
+    width: 10px;
+    width: 10px;
 }
 *::-webkit-scrollbar-track {
-  border-radius: 3px;
-  background-color: #f8fafc;
+    border-radius: 3px;
+    background-color: #f8fafc;
 }
 
 *::-webkit-scrollbar-thumb {
-  border-radius: 3px;
-  background-color: #b00d0d;
+    border-radius: 3px;
+    background-color: #b00d0d;
 }
 
 *::-webkit-file-upload-button {
-  display: none;
+    display: none;
 }
 
 body {
-  color: rgb(255, 255, 255);
-  min-height: 100svh;
-  background-image: url("/background/city.png");
-  background-repeat: no-repeat;
-  background-position: right;
-  background-color: #000000;
-  -o-background-size: cover;
-  -moz-background-size: cover;
-  -webkit-background-size: cover;
-  background-size: cover;
+    color: rgb(255, 255, 255);
+    min-height: 100svh;
+    background-image: url("/background/city.png");
+    background-repeat: no-repeat;
+    background-position: right;
+    background-color: #000000;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    background-size: cover;
 }
 
 @keyframes combinedLightSwitch {
-  0%, 19.99% {
-    background-image: url("/background/main_light.png"), url("/background/city.png"), url("/background/red_light_on.png"), url("/background/light2.png");
-  }
-  20%, 39.99% {
-    background-image: url("/background/main_light.png"), url("/background/city.png"), url("/background/red_light_off.png"), url("/background/light3.png");
-  }
-  40%, 59.99% {
-    background-image: url("/background/main_light.png"), url("/background/city.png"), url("/background/red_light_on.png"), url("/background/light1.png");
-  }
-  60%, 79.99% {
-    background-image: url("/background/main_light.png"), url("/background/city.png"), url("/background/red_light_off.png"), url("/background/light3.png");
-  }
-  80%, 100% {
-    background-image: url("/background/main_light.png"), url("/background/city.png"), url("/background/red_light_on.png"), url("/background/light1.png");
-  }
+    0%,
+    19.99% {
+        background-image: url("/background/main_light.png"), url("/background/city.png"), url("/background/red_light_on.png"),
+            url("/background/light2.png");
+    }
+    20%,
+    39.99% {
+        background-image: url("/background/main_light.png"), url("/background/city.png"), url("/background/red_light_off.png"),
+            url("/background/light3.png");
+    }
+    40%,
+    59.99% {
+        background-image: url("/background/main_light.png"), url("/background/city.png"), url("/background/red_light_on.png"),
+            url("/background/light1.png");
+    }
+    60%,
+    79.99% {
+        background-image: url("/background/main_light.png"), url("/background/city.png"), url("/background/red_light_off.png"),
+            url("/background/light3.png");
+    }
+    80%,
+    100% {
+        background-image: url("/background/main_light.png"), url("/background/city.png"), url("/background/red_light_on.png"),
+            url("/background/light1.png");
+    }
 }
 
-
 body {
-  animation: combinedLightSwitch 5s infinite;
+    animation: combinedLightSwitch 5s infinite;
 }
 
 html {
-  --nav-height: 84px;
-  --section-headers-height: 56px;
-  scroll-padding-top: var(--nav-height);
-  scroll-behavior: smooth;
+    --nav-height: 84px;
+    --section-headers-height: 56px;
+    scroll-padding-top: var(--nav-height);
+    scroll-behavior: smooth;
 }
 
 main {
-  height: calc(100svh - var(--nav-height));
+    height: calc(100svh - var(--nav-height));
 }
 
 .section-content-wrapper {
-  height: calc(100svh - var(--nav-height) - var(--section-headers-height));
+    height: calc(100svh - var(--nav-height) - var(--section-headers-height));
 }
 
 @media (pointer: coarse) {
-  .scrollable::-webkit-scrollbar {
-    display: none;
-  }
+    .scrollable::-webkit-scrollbar {
+        display: none;
+    }
 
-  .scrollable {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
+    .scrollable {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+}
+
+@layer base {
+    :root {
+        --background: 0 0% 100%;
+        --foreground: 0 0% 3.9%;
+        --card: 0 0% 100%;
+        --card-foreground: 0 0% 3.9%;
+        --popover: 0 0% 100%;
+        --popover-foreground: 0 0% 3.9%;
+        --primary: 0 0% 9%;
+        --primary-foreground: 0 0% 98%;
+        --secondary: 0 0% 96.1%;
+        --secondary-foreground: 0 0% 9%;
+        --muted: 0 0% 96.1%;
+        --muted-foreground: 0 0% 45.1%;
+        --accent: 0 0% 96.1%;
+        --accent-foreground: 0 0% 9%;
+        --destructive: 0 84.2% 60.2%;
+        --destructive-foreground: 0 0% 98%;
+        --border: 0 0% 89.8%;
+        --input: 0 0% 89.8%;
+        --ring: 0 0% 3.9%;
+        --chart-1: 12 76% 61%;
+        --chart-2: 173 58% 39%;
+        --chart-3: 197 37% 24%;
+        --chart-4: 43 74% 66%;
+        --chart-5: 27 87% 67%;
+        --radius: 0.5rem;
+    }
+    .dark {
+        --background: 0 0% 3.9%;
+        --foreground: 0 0% 98%;
+        --card: 0 0% 3.9%;
+        --card-foreground: 0 0% 98%;
+        --popover: 0 0% 3.9%;
+        --popover-foreground: 0 0% 98%;
+        --primary: 0 0% 98%;
+        --primary-foreground: 0 0% 9%;
+        --secondary: 0 0% 14.9%;
+        --secondary-foreground: 0 0% 98%;
+        --muted: 0 0% 14.9%;
+        --muted-foreground: 0 0% 63.9%;
+        --accent: 0 0% 14.9%;
+        --accent-foreground: 0 0% 98%;
+        --destructive: 0 62.8% 30.6%;
+        --destructive-foreground: 0 0% 98%;
+        --border: 0 0% 14.9%;
+        --input: 0 0% 14.9%;
+        --ring: 0 0% 83.1%;
+        --chart-1: 220 70% 50%;
+        --chart-2: 160 60% 45%;
+        --chart-3: 30 80% 55%;
+        --chart-4: 280 65% 60%;
+        --chart-5: 340 75% 55%;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+    body {
+        @apply bg-background text-foreground;
+    }
 }
