@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, query, limit } from "firebase/firestore";
 import { db } from "@/config/firebase";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import {
@@ -79,8 +79,27 @@ const ViewerPage = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [password, setPassword] = useState("");
     const [loginError, setLoginError] = useState<string | null>(null);
+    const [correctPassword, setCorrectPassword] = useState<string | null>(null);
 
-    const correctPassword = "admin123";
+    useEffect(() => {
+        const fetchPassword = async () => {
+            try {
+                const credentialsQuery = query(collection(db, "credentials"), limit(1));
+                const credentialsSnapshot = await getDocs(credentialsQuery);
+                if (!credentialsSnapshot.empty) {
+                    const credentialDoc = credentialsSnapshot.docs[0];
+                    setCorrectPassword(credentialDoc.data().password);
+                } else {
+                    setError("No credentials found in the database.");
+                }
+            } catch (err) {
+                console.error("Error fetching password:", err);
+                setError("Error fetching credentials. Please try again later.");
+            }
+        };
+
+        fetchPassword();
+    }, []);
 
     useEffect(() => {
         if (isLoggedIn) {
