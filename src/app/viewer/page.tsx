@@ -27,7 +27,7 @@ const columns: ColumnDef<registrationType>[] = [
         header: ({ column }) => {
             return (
                 <Button variant='ghost' onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}>
-                    First name
+                    Imię
                     <ArrowUpDown className='ml-2 h-4 w-4' />
                 </Button>
             );
@@ -38,36 +38,33 @@ const columns: ColumnDef<registrationType>[] = [
         header: ({ column }) => {
             return (
                 <Button variant='ghost' onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}>
-                    Last name
+                    Nazwisko
                     <ArrowUpDown className='ml-2 h-4 w-4' />
                 </Button>
             );
         },
     },
-    {
-        accessorKey: "email",
-        header: "Email",
-    },
-    {
-        accessorKey: "phone",
-        header: "Phone",
-    },
-    {
-        accessorKey: "faculty",
-        header: "Faculty",
-    },
-    {
-        accessorKey: "fieldOfStudy",
-        header: "Field of Study",
-    },
-    {
-        accessorKey: "degree",
-        header: "Degree",
-    },
-    {
-        accessorKey: "collegeLevel",
-        header: "College Level",
-    },
+    { accessorKey: "email", header: "Email" },
+    { accessorKey: "phone", header: "Telefon" },
+    { accessorKey: "pesel", header: "PESEL" },
+    { accessorKey: "sex", header: "Płeć" },
+    { accessorKey: "faculty", header: "Wydział" },
+    { accessorKey: "indexNumber", header: "Indeks" },
+    { accessorKey: "degree", header: "Stopień" },
+    { accessorKey: "collegeLevel", header: "Studia" },
+    { accessorKey: "fieldOfStudy", header: "Kierunek Study" },
+    { accessorKey: "diet", header: "Dieta" },
+    { accessorKey: "shirtSize", header: "Rozmiar koszulki" },
+    { accessorKey: "source", header: "Źródło" },
+    { accessorKey: "sourceOther", header: "Źródło (Inne)" },
+    { accessorKey: "invoice", header: "Faktura" },
+    { accessorKey: "statuteAccept", header: "Akceptacja statutu" },
+    { accessorKey: "personalDataAccept", header: "Akceptacja danych" },
+    { accessorKey: "additionalAccept", header: "Akceptacja przetwarzania danych" },
+    { accessorKey: "firstNameInvoice", header: "Imię (Faktura)" },
+    { accessorKey: "lastNameInvoice", header: "Nazwisko (Faktura)" },
+    { accessorKey: "nipPeselInvoice", header: "NIP/PESEL (Faktura)" },
+    { accessorKey: "birthDate", header: "Data urodzenia" },
 ];
 
 const ViewerPage = () => {
@@ -191,27 +188,27 @@ const ViewerPage = () => {
                     className='max-w-sm'
                 />
             </div>
-            <div className='rounded-md border'>
-                <Table>
+            <div className='rounded-md border overflow-x-auto'>
+                <Table className='border-collapse table-auto w-full'>
                     <TableHeader>
                         {table.getHeaderGroups().map((headerGroup) => (
-                            <TableRow key={headerGroup.id}>
-                                {headerGroup.headers.map((header) => {
-                                    return (
-                                        <TableHead key={header.id}>
-                                            {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
-                                        </TableHead>
-                                    );
-                                })}
+                            <TableRow key={headerGroup.id} className='bg-gray-100'>
+                                {headerGroup.headers.map((header) => (
+                                    <TableHead key={header.id} className='border px-4 py-2 text-left font-bold'>
+                                        {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
+                                    </TableHead>
+                                ))}
                             </TableRow>
                         ))}
                     </TableHeader>
                     <TableBody>
                         {table.getRowModel().rows?.length ? (
-                            table.getRowModel().rows.map((row) => (
+                            table.getRowModel().rows.map((row, i) => (
                                 <TableRow key={row.id} data-state={row.getIsSelected() && "selected"}>
                                     {row.getVisibleCells().map((cell) => (
-                                        <TableCell key={cell.id}>{flexRender(cell.column.columnDef.cell, cell.getContext())}</TableCell>
+                                        <TableCell key={cell.id} className='border px-4 py-2'>
+                                            {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                                        </TableCell>
                                     ))}
                                 </TableRow>
                             ))
@@ -226,10 +223,10 @@ const ViewerPage = () => {
                 </Table>
             </div>
             <div className='flex items-center justify-end space-x-2 py-4'>
-                <Button variant='outline' size='sm' onClick={() => table.previousPage()} disabled={!table.getCanPreviousPage()}>
+                <Button onClick={() => table.previousPage()} disabled={!table.getCanPreviousPage()}>
                     Previous
                 </Button>
-                <Button variant='outline' size='sm' onClick={() => table.nextPage()} disabled={!table.getCanNextPage()}>
+                <Button onClick={() => table.nextPage()} disabled={!table.getCanNextPage()}>
                     Next
                 </Button>
             </div>
