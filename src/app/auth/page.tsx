@@ -35,7 +35,7 @@ const AuthPage = () => {
           error={error}
           helperText={error ? "Złe hasło" : ""}
         />
-        <Button type="submit" variant="contained">Submit</Button>
+        <Button type="submit" variant="contained">Zatwierdź</Button>
       </form>
     </div>
   );

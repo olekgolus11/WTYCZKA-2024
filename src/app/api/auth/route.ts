@@ -5,7 +5,7 @@ export async function POST(req: Request) {
   const { password } = await req.json();
   const cookiesStore = cookies()
 
-  if (password === 'wtyczka') {
+  if (password === 'omerta') {
     console.log('[ACTION] Password is correct');
     cookiesStore.set('magic', 'test');
     return NextResponse.json({ success: true });

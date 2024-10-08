@@ -20,7 +20,7 @@ import AnimateWrapper from "@/animations/AnimateWrapper";
 import { PaymentDetailsTextEN, PaymentDetailsTextPL } from "./paymentDetails";
 
 const PaymentsForm = () => {
-  const MAX_PAYMENTS = 105;
+  const MAX_PAYMENTS = 99;
   const { languageMode } = useLanguageModeContext();
   const methods = useForm<paymentType>({ mode: "onBlur" });
   const paymentCollectionRef = collection(db, "payment");
