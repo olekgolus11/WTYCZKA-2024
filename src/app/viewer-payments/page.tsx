@@ -57,6 +57,12 @@ const columns: ColumnDef<registrationType>[] = [
     },
     { accessorKey: "email", header: "Email" },
     { accessorKey: "pesel", header: "PESEL" },
+    { accessorKey: "adultAccept", header: "Zgoda na pełnoletność" },
+    { accessorKey: "paymentAccept", header: "Zgoda na płatność" },
+    { accessorKey: "diseases", header: "Choroby" },
+    { accessorKey: "emergencyContact", header: "Nagły kontakt" },
+    { accessorKey: "studentStatus", header: "Status studenta" },
+    { accessorKey: "transport", header: "Transport" },
     { accessorKey: "timeSend", header: "Czas przesłania" },
     { accessorKey: "confirmationDoc", header: "Potwierdzenie" },
 ];
