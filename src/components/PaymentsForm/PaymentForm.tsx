@@ -9,18 +9,18 @@ import {
 import { FormProvider, useForm } from "react-hook-form";
 import FormField from "../formComponents/FormField";
 import UploadFileIcon from "@mui/icons-material/UploadFile";
-import { Timestamp, addDoc, collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, doc, setDoc } from "firebase/firestore";
 import { db } from "@/config/firebase";
 import { paymentType } from "./paymentType";
 import { storage } from "@/config/firebase";
-import { ref, uploadBytes } from "firebase/storage";
+import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { useEffect, useState } from "react";
 import Toast from "../Toast/Toast";
 import AnimateWrapper from "@/animations/AnimateWrapper";
 import { PaymentDetailsTextEN, PaymentDetailsTextPL } from "./paymentDetails";
 
 const PaymentsForm = () => {
-  const MAX_PAYMENTS = 105;
+  const MAX_PAYMENTS = 99;
   const { languageMode } = useLanguageModeContext();
   const methods = useForm<paymentType>({ mode: "onBlur" });
   const paymentCollectionRef = collection(db, "payment");
@@ -29,6 +29,7 @@ const PaymentsForm = () => {
   const [isPaymentOpen, setIsPaymentOpen] = useState(false);
   const [isFetchError, setIsFetchError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [isUploading, setIsUploading] = useState(false);
 
   useEffect(() => {
     setPaymentState();
@@ -36,6 +37,7 @@ const PaymentsForm = () => {
 
   const setPaymentState = async () => {
     try {
+      setIsLoading(true);
       const data = await getDocs(collection(db, "formStates"));
       const forms = data.docs.map((doc) => ({
         ...doc.data(),
@@ -46,6 +48,7 @@ const PaymentsForm = () => {
       }));
       const payment = forms.filter((state) => state.form === "payment");
       setIsPaymentOpen(payment[0].isOpen && counter.length < MAX_PAYMENTS);
+      setIsPaymentOpen(true);
     } catch (e) {
       setIsFetchError(true);
     } finally {
@@ -55,22 +58,31 @@ const PaymentsForm = () => {
 
   const onSubmit = async (data: paymentType) => {
     try {
-      await addDoc(paymentCollectionRef, {
-        firstName: data.firstName,
-        lastName: data.lastName,
-        email: data.email,
-        pesel: data.pesel,
-        timeSend: Timestamp.now(),
-      });
+      setIsUploading(true);
       const storageRef = ref(
         storage,
         `payment/${data.firstName}_${data.lastName}`
       );
       uploadBytes(storageRef, data.file[0]);
+      const uploadResult = await uploadBytes(storageRef, data.file[0]);
+      const confirmationDocUrl = await getDownloadURL(uploadResult.ref);
+      
+      const newDocRef = doc(paymentCollectionRef);
+      const formData = {
+        firstName: data.firstName,
+        lastName: data.lastName,
+        email: data.email,
+        pesel: data.pesel,
+        timeSend: new Date().toUTCString(),
+        timestamp: new Date().getTime(),
+        confirmationDoc: confirmationDocUrl,
+      }
+      await setDoc(newDocRef, formData);
     } catch (e) {
       setIsSubmitError(true);
     } finally {
       setIsSubmitError(false);
+      setIsUploading(false);
       setOpen(true);
       methods.reset();
     }
@@ -248,10 +260,11 @@ const PaymentsForm = () => {
           once={true}
           className="flex gap-4 py-8 justify-center items-center"
         >
-          <button type="submit" className="button-round button-filled">
-            {languageMode == "english"
+          <button type="submit" className="button-round button-filled" disabled={isUploading}>
+            {!isUploading ? (languageMode == "english"
               ? "Send payment confirmation"
-              : "Wyślij potwierdzenie płatności"}
+              : "Wyślij potwierdzenie płatności") : (
+                <CircularProgress color="primary" />)}
           </button>
         </AnimateWrapper>
       </form>
