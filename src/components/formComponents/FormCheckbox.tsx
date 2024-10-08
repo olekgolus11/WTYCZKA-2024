@@ -6,9 +6,11 @@ const FormCheckbox = ({
   name,
   label,
   onClick,
+  shouldSlice = true,
 }: {
   name: string;
   label: string;
+  shouldSlice?: boolean;
   onClick?: (e: any) => void;
 }) => {
   const { control } = useFormContext();
@@ -33,9 +35,10 @@ const FormCheckbox = ({
               </div>
             }
             label={
-              label.length > maxCheckboxContentLength
+              shouldSlice ?
+              (label.length > maxCheckboxContentLength
                 ? label.slice(0, maxCheckboxContentLength) + "..."
-                : label
+                : label) : label
             }
             labelPlacement="end"
           />

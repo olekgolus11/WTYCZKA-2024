@@ -12,3 +12,11 @@ export const PaymentDetailsTextEN = {
   title: "Title of the transfer: WTYCZKA2024-FirstnameLastname",
   amount: "Amount: 450 zł (+ 30zł for vegetarian diet)",
 };
+
+export const PaymentRequirementsTextPL = {
+  text: "Jeśli nie wypełniałeś wcześniej formularzu rejestracyjnego, prosimy o wypełnienie go przed dokonaniem płatności.",
+};
+
+export const PaymentRequirementsTextEN = {
+  text: "If you haven't filled out the registration form yet, please do so before making a payment.",
+};

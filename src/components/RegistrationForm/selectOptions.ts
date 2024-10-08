@@ -37,6 +37,16 @@ export const FacultyOptions = {
   ],
 };
 
+export const TransportOptions = {
+  PL: ["Tak (autokar)", "Nie (transport własny - zniżka)"],
+  EN: ["Yes (bus)", "No (own transport - discount)"],
+}
+
+export const StudentStatusOptions = {
+  PL: ['Politechniki Łódzkiej', 'Innej uczelni', 'Nie posiadam statusu studenta'],
+  EN: ['Of Lodz University of Technology', 'Of Other university', 'I do not have student status'],
+};
+
 export const DietOptions = {
   PL: ["standardowa", "wegetariańska (+30zł)"],
   EN: ["standard", "vegetarian (+30zł)"],
