@@ -46,6 +46,7 @@ const PaymentsForm = () => {
       const counter = counterData.docs.map((doc) => ({
         ...doc.data(),
       }));
+      const payment = forms.filter((state) => state.form === "payment");
       setIsPaymentOpen(payment[0].isOpen && counter.length < MAX_PAYMENTS);
       setIsPaymentOpen(true);
     } catch (e) {
