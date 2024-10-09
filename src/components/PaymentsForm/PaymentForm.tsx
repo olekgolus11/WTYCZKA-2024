@@ -51,7 +51,6 @@ const PaymentsForm = () => {
       }));
       const payment = forms.filter((state) => state.form === "payment");
       setIsPaymentOpen(payment[0].isOpen && counter.length < MAX_PAYMENTS);
-      setIsPaymentOpen(true);
     } catch (e) {
       setIsFetchError(true);
     } finally {
